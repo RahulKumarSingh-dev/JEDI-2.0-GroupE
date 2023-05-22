@@ -4,6 +4,7 @@
 package com.flipkart.client;
 
 import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ import com.flipkart.bean.Professor;
 import com.flipkart.bean.RegisteredCourse;
 import com.flipkart.bean.Student;
 import com.flipkart.constant.GenderConstant;
+import com.flipkart.constant.GradeConstant;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.constant.RoleConstant;
 import com.flipkart.exception.CourseExistsAlreadyException;
@@ -356,7 +358,24 @@ private void approveAllStudent() {
 		
 	}
 
-	
+	private int getValue(String grade) {
+		switch (grade) {	
+		case "A":
+			return 10;
+		case "B":
+			return 8;
+		case "C":
+			return 6;
+		case "D":
+			return 4;
+		case "E":
+			return 2;
+		case "F":
+			return 0;
+		default:
+			return 0;
+		}
+	}
 		
 	private void generateReportCard() 
 	{
@@ -381,11 +400,14 @@ private void approveAllStudent() {
 					System.out.println("You have not registered for any courses");
 					return;
 				}
-				
+				int sum=0,count=0;
 				for(Grade obj : grade_card)
 				{
 					System.out.println(String.format("%-20s %-20s %-20s",obj.getCrsCode(), obj.getCrsName(),obj.getGrade()));
+					sum += getValue(obj.getGrade());
+					count++;
 				}
+				double cpi=sum*1.0/count;
 			}
 			else
 				System.out.println("Report card has'nt been generated yet");
