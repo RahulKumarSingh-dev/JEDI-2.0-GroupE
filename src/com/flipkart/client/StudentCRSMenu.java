@@ -3,7 +3,7 @@
  */
 package com.flipkart.client;
 
-import com.flipkart.bean.Course;
+import com.flipkart.bean.*;
 
 import com.flipkart.bean.Grade;
 import com.flipkart.constant.NotificationTypeConstant;
@@ -19,12 +19,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
 public class StudentCRSMenu {
@@ -34,7 +29,7 @@ public class StudentCRSMenu {
 	StudentInterface studentInterface = StudentOperation.getInstance();
 	AdminInterface adminInterface = AdminOperation.getInstance();
 	ProfessorInterface professorInterface = ProfessorOperation.getInstance();
-	NotificationInterface notificationInterface = NotificationOperation.getInstance();
+//	NotificationInterface notificationInterface = NotificationOperation.getInstance();
 	private boolean is_registered;
 
 	public void create_menu(String studentId) {
@@ -145,7 +140,7 @@ public class StudentCRSMenu {
 
 				if (registrationInterface.addCourse(courseCode, studentId, courseList)) {
 					System.out.println("Course " + courseCode + " registered sucessfully.");
-					
+
 				} else {
 					System.out.println(" You have already registered for Course : " + courseCode);
 				}
@@ -381,13 +376,85 @@ public class StudentCRSMenu {
 					index = index + 1;
 				}
 
-				PaymentModeConstant mode = PaymentModeConstant.getPaymentMode(sc.nextInt());
-
+				PaymentModeConstant mode = PaymentModeConstant.getPaymentMode(Integer.parseInt(sc.next()));
+				String paymentMode = "";
 				if (mode == null)
 					System.out.println("Invalid Input");
 				else {
 					try {
-						notificationInterface.sendNotification(NotificationTypeConstant.PAYED, studentId, mode, fee);
+						switch (mode) {
+						case ONLINE:
+							paymentMode = "ONLINE";
+							System.out.println("Press \n1 for Card");
+							System.out.println("2 for NetBanking");
+							System.out.println("3 to quit");
+							String onlineMode = sc.next();
+							switch (onlineMode) {
+							case "1":
+								System.out.println("Please Enter Card Number");
+								sc.next();
+								System.out.println("Please Enter Date of Expiry");
+								sc.next();
+								System.out.println("Please Enter CVV");
+								sc.next();
+								System.out.println("Fees Paid.");
+								break;
+							case "2":
+								System.out.println("Please Enter User Name");
+								sc.next();
+								System.out.println("Please Enter Password");
+								sc.next();
+								System.out.println("Fees Paid.");
+								break;
+							default:
+								System.out.println("Invalid Argument");
+								return;
+							}
+
+							break;
+						case OFFLINE:
+							paymentMode = "OFFLINE";
+							System.out.println("Press \n1 for Cash");
+							System.out.println("2 for Cheque");
+							System.out.println("3 to quit");
+							String offlineMode = sc.next();
+							switch (offlineMode) {
+							case "1":
+								System.out.println("Please Pay your fees at Fee Counter");
+								break;
+							case "2":
+								System.out.println("Please Enter Account Number");
+								sc.next();
+								System.out.println("Please Enter IFSC Code");
+								sc.next();
+								System.out.println("Please Submit your Cheque at Fee Counter");
+								break;
+							default:
+								System.out.println("Invalid Argument");
+								return;
+							}
+
+							break;
+						case SCHOLARSHIP:
+							paymentMode = "SCHOLARSHIP";
+							System.out.println("Fees Paid.");
+							break;
+						default:
+							System.out.println("Invalid Argument");
+							return;
+						}
+
+						Payment payment = new Payment();
+
+						payment.setAmount(fee);
+						payment.setPaymentMode(paymentMode);
+						payment.setStudentId(studentId);
+						
+						PaymentServiceInterface paymentOperation=new PaymentOperationService();
+						
+						paymentOperation.processPayment(payment);
+
+//						notificationInterface.sendNotification(NotificationTypeConstant.PAYED, studentId, mode, fee);
 						System.out.println("Payment Successful by StudentId :" + studentId);
 						registrationInterface.setPaymentStatus(studentId);
 					} catch (Exception e) {

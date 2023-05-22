@@ -13,7 +13,7 @@ import com.flipkart.exception.StudentNotRegisteredException;
 import com.flipkart.exception.UserNotFoundException;
 
 import com.flipkart.service.NotificationInterface;
-import com.flipkart.service.NotificationOperation;
+//import com.flipkart.service.NotificationOperation;
 
 
 import com.flipkart.service.StudentInterface;
@@ -35,7 +35,7 @@ public class CRSApplication {
 	static boolean loggedin = false;
 	StudentInterface studentInterface=StudentOperation.getInstance();
 	UserInterface userInterface =UserOperation.getInstance();
-	NotificationInterface notificationInterface=NotificationOperation.getInstance();
+//	NotificationInterface notificationInterface=NotificationOperation.getInstance();
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -85,12 +85,21 @@ public class CRSApplication {
 	 */
 	public static void createMainMenu()
 	{
-		System.out.println("----------Welcome to Course Registration System---------");
-		System.out.println("1. Login");
-		System.out.println("2. Student Registration");
-		System.out.println("3. Update password");
-		System.out.println("4. Exit");
-		System.out.println("Enter user input");
+		System.out.println("+---------------------------------------------------+");
+		System.out.println("|           Welcome to Course Registration          |");
+		System.out.println("|                     System                        |");
+		System.out.println("+---------------------------------------------------+");
+		System.out.println("| Option |              Description                 |");
+		System.out.println("+---------------------------------------------------+");
+		System.out.println("|   1    |               Login                      |");
+		System.out.println("|   2    |       Student Registration               |");
+		System.out.println("|   3    |         Update Password                  |");
+		System.out.println("|   4    |               Exit                       |");
+		System.out.println("+---------------------------------------------------+");
+		System.out.println("|                Enter user input                   |");
+		System.out.println("+---------------------------------------------------+");
+
+
 	}
 	
 	/**
@@ -104,11 +113,28 @@ public class CRSApplication {
 		String userId,password;
 		try
 		{
-			System.out.println("-----------------Login------------------");
-			System.out.println("Email:");
+//			System.out.println("-----------------Login------------------");
+//			System.out.println("Enter Email:");
+//			userId = in.next();
+//			System.out.println("Enter Password:");
+//			password = in.next();
+			
+			System.out.println("+-----------------Login------------------+");
+			System.out.println("|              Enter Email               |");
+			System.out.println("+----------------------------------------+");
+			System.out.print("| Email: ");
 			userId = in.next();
-			System.out.println("Password:");
+			System.out.println("|");
+			System.out.println("+----------------------------------------+");
+			System.out.println("|             Enter Password             |");
+			System.out.println("+----------------------------------------+");
+			System.out.print("| Password: ");
 			password = in.next();
+			System.out.println("|");
+			System.out.println("+----------------------------------------+");
+
+
+
 			loggedin = userInterface.verifyCredentials(userId, password);
 			
 			
@@ -181,11 +207,11 @@ public class CRSApplication {
 		{
 			//input all the student details
 			System.out.println("---------------Student Registration-------------");
-			System.out.println("Name:");
+			System.out.println("Enter Name:");
 			name=sc.nextLine();
-			System.out.println("Email:");
+			System.out.println("Enter Email:");
 			userId=sc.next();
-			System.out.println("Password:");
+			System.out.println("Enter Password:");
 			password=sc.next();
 			System.out.println("GenderConstant: \t 1: Male \t 2.Female\t 3.Other");
 			genderV=sc.nextInt();
@@ -207,12 +233,12 @@ public class CRSApplication {
 				gender=GenderConstant.OTHER;
 			}
 			
-			System.out.println("Branch:");
+			System.out.println("Enter Branch:");
 			branchName=sc.nextLine();
-			System.out.println("Batch:");
+			System.out.println("Enter Batch:");
 			batch=sc.nextInt();
 			sc.nextLine();
-			System.out.println("Address:");
+			System.out.println("Enter Address:");
 			address=sc.nextLine();
 			
 			
@@ -236,9 +262,9 @@ public class CRSApplication {
 		String userId,newPassword;
 		try {
 			System.out.println("------------------Update Password--------------------");
-			System.out.println("Email");
+			System.out.println("Enter Email");
 			userId=in.next();
-			System.out.println("New Password:");
+			System.out.println("Enter New Password:");
 			newPassword=in.next();
 			boolean isUpdated=userInterface.updatePassword(userId, newPassword);
 			if(isUpdated)

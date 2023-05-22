@@ -2,74 +2,64 @@ package com.flipkart.bean;
 
 public class Payment 
 {
-	Student stud;
-	String InvoiceID;
-	float amount;
-	boolean status;
-	
-	
+	String studentId;
+	double amount;
+	String referenceId;
+	String paymentMode;
 	/**
-	 * @return the stud
+	 * @return the studentId
 	 */
-	public Student getStud() {
-		return stud;
+	public String getStudentId() {
+		return studentId;
 	}
-	
-	
 	/**
-	 * @param stud the stud to set
+	 * @param studentId the studentId to set
 	 */
-	public void setStud(Student stud) {
-		this.stud = stud;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
-	
-	
-	/**
-	 * @return the invoiceID
-	 */
-	public String getInvoiceID() {
-		return InvoiceID;
-	}
-	
-	
-	/**
-	 * @param invoiceID the invoiceID to set
-	 */
-	public void setInvoiceID(String invoiceID) {
-		InvoiceID = invoiceID;
-	}
-	
-	
 	/**
 	 * @return the amount
 	 */
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	
-	
 	/**
 	 * @param amount the amount to set
 	 */
-	public void setAmount(float amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	
-	
+	/**
+	 * @return the referenceId
+	 */
+	public String getReferenceId() {
+		return referenceId;
+	}
+	/**
+	 * @param referenceId the referenceId to set
+	 */
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+	/**
+	 * @return the paymentMode
+	 */
+	public String getPaymentMode() {
+		return paymentMode;
+	}
+	/**
+	 * @param paymentMode the paymentMode to set
+	 */
+	public void setPaymentMode(String paymentMode) {
+		this.paymentMode = paymentMode;
+	}
 	/**
 	 * @return the status
 	 */
-	public boolean isStatus() {
-		return status;
-	}
+
 	
 	
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 	
 	
 	

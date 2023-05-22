@@ -44,7 +44,7 @@ public class SQLQueriesConstant {
 	public static final String IS_REGISTERED = " select courseCode from registeredcourse where courseCode=? and studentId=? ";
 	public static final String CALCULATE_FEE = " SELECT sum(course.courseFee) as total FROM course join registeredcourse on course.courseCode=registeredcourse.courseCode and registeredCourse.studentId=? ";
 	public static final String GET_GRADES = "select grade from registeredcourse where studentId=?";
-
+	public static final String ADD_PAYMENT = "insert into payment values(?,?,?,?)";
 	// ProfessorDao queries
 
 	public static final String UPDATE_PASSWORD = "update user set password=? where userId = ? ";

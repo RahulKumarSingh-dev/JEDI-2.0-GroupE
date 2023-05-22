@@ -5,6 +5,7 @@ package com.flipkart.client;
 
 import java.sql.SQLException;
 
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ import com.flipkart.exception.UserNotFoundException;
 import com.flipkart.service.AdminInterface;
 import com.flipkart.service.AdminOperation;
 import com.flipkart.service.NotificationInterface;
-import com.flipkart.service.NotificationOperation;
+//import com.flipkart.service.NotificationOperation;
 import com.flipkart.service.RegistrationInterface;
 import com.flipkart.service.RegistrationOperation;
 
@@ -43,7 +44,7 @@ public class AdminCRSMenu {
 
 	AdminInterface adminOperation = AdminOperation.getInstance();
 	Scanner in = new Scanner(System.in);
-	NotificationInterface notificationInterface=NotificationOperation.getInstance();
+//	NotificationInterface notificationInterface=NotificationOperation.getInstance();
 	RegistrationInterface registrationInterface = RegistrationOperation.getInstance();
 	
 	/**
@@ -212,7 +213,7 @@ public class AdminCRSMenu {
 			adminOperation.approveStudent(studentUserIdApproval, studentList);
 			System.out.println("\nStudent Id : " +studentUserIdApproval+ " has been approved\n");
 			//send notification from system
-			notificationInterface.sendNotification(NotificationTypeConstant.REGISTRATION, studentUserIdApproval, null,0);
+//			notificationInterface.sendNotification(NotificationTypeConstant.REGISTRATION, studentUserIdApproval, null,0);
 	
 		} catch (StudentNotFoundForApprovalException e) {
 			System.out.println(e.getMessage());
@@ -236,7 +237,7 @@ private void approveAllStudent() {
 				String studentUserIdApproval=student.getUserId();
 				System.out.println("\nStudent Id : " +studentUserIdApproval+ " has been approved\n");
 				//send notification from system
-				notificationInterface.sendNotification(NotificationTypeConstant.REGISTRATION, studentUserIdApproval, null,0);
+//				notificationInterface.sendNotification(NotificationTypeConstant.REGISTRATION, studentUserIdApproval, null,0);
 			}
 	
 		} catch (StudentNotFoundForApprovalException e) {
