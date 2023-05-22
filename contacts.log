@@ -1,0 +1,30 @@
+01:44:39,894 ERROR RegistrationDaoOperation,main:273 - 1054
+01:44:39,896 ERROR RegistrationDaoOperation,main:274 - Unknown column 'courseFee' in 'field list'
+01:45:41,976 ERROR RegistrationDaoOperation,main:273 - 1054
+01:45:41,977 ERROR RegistrationDaoOperation,main:274 - Unknown column 'courseFee' in 'field list'
+11:39:41,541 ERROR AdminDaoOperation,main:171 - No operations allowed after connection closed.
+11:51:13,550 ERROR AdminDaoOperation,main:171 - No operations allowed after connection closed.
+11:56:29,583 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+11:56:29,601 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+11:56:29,618 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+11:58:07,436 ERROR AdminDaoOperation,main:414 - No operations allowed after connection closed.
+11:58:07,437 ERROR AdminDaoOperation,main:372 - No operations allowed after connection closed.
+12:11:39,504 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+12:12:13,934 ERROR AdminDaoOperation,main:457 - No operations allowed after connection closed.
+13:05:57,848 ERROR AdminDaoOperation,main:431 - No operations allowed after connection closed.
+13:06:55,351 ERROR AdminDaoOperation,main:172 - No operations allowed after connection closed.
+13:09:32,321 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+13:09:32,357 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+13:09:52,137 ERROR AdminDaoOperation,main:431 - No operations allowed after connection closed.
+13:36:29,247 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+13:39:32,397 ERROR UserDaoOperation,main:186 - Illegal operation on empty result set.
+13:44:43,818 ERROR AdminDaoOperation,main:431 - No operations allowed after connection closed.
+14:17:52,515 ERROR AdminDaoOperation,main:132 - Cannot add or update a child row: a foreign key constraint fails (`crsdatabase`.`course`, CONSTRAINT `course_prof_id` FOREIGN KEY (`professorId`) REFERENCES `professor` (`professorId`))
+14:29:51,932 ERROR AdminDaoOperation,main:172 - No operations allowed after connection closed.
+14:30:12,050 ERROR AdminDaoOperation,main:172 - No operations allowed after connection closed.
+14:38:23,577 ERROR AdminDaoOperation,main:172 - No operations allowed after connection closed.
+14:45:02,039 ERROR AdminDaoOperation,main:246 - No operations allowed after connection closed.
+14:45:02,046 ERROR AdminDaoOperation,main:273 - userId: p2 is already in use.
+14:50:09,537 ERROR AdminDaoOperation,main:172 - No operations allowed after connection closed.
+15:04:45,236 ERROR AdminDaoOperation,main:373 - No operations allowed after connection closed.
+15:15:46,367 ERROR UserDaoOperation,main:148 - Unknown column 'GradeConstant' in 'field list'
