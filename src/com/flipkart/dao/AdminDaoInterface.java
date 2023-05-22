@@ -20,9 +20,14 @@ import com.flipkart.exception.UserNotAddedException;
 import com.flipkart.exception.UserNotFoundException;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public interface AdminDaoInterface {
 	
 	public List<Course> viewCourses();

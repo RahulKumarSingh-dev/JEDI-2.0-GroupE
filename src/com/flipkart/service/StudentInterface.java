@@ -6,10 +6,14 @@ import com.flipkart.exception.StudentNotRegisteredException;
 
 /**
  * 
- * @author rahul.kumar
- * Interface for Student Operations
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public interface StudentInterface {
 	
 	/**
@@ -33,6 +37,7 @@ public interface StudentInterface {
 	 * @return Student ID
 	 */
 	public String getStudentId(String userId);
+	public int calculateFees(String studentId);
 	
 	/**
 >>>>>>> 09eebac02dc52570ccfa1b523f636ed363e95aa6

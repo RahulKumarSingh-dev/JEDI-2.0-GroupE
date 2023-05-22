@@ -9,10 +9,14 @@ import com.flipkart.exception.SeatNotAvailableException;
 
 /**
  * 
- * @author rahul.kumar
- * Class for Student Validator 
- * 
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public class StudentValidator {
 
 	/**

@@ -4,9 +4,14 @@
 package com.flipkart.exception;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class CourseNotFoundException extends Exception{
 	
 	private String courseCode;

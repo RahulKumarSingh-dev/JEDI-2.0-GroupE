@@ -2,10 +2,14 @@ package com.flipkart.constant;
 
 /**
  * 
- * @author rahul.kumar
- * Enumeration class for Mode of Payments
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public enum PaymentModeConstant {
 	
 	CREDIT_CARD,NET_BANKING,DEBIT_CARD;

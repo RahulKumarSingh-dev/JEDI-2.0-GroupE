@@ -13,8 +13,14 @@ import com.flipkart.utils.DBUtils;
 
 /**
  * 
- * @author rahul.kumar
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class UserDaoOperation implements UserDaoInterface{
 	private static volatile UserDaoOperation instance=null;
 	private static Logger logger = Logger.getLogger(UserDaoOperation.class);

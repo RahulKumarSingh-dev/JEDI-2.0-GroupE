@@ -9,9 +9,14 @@ import com.flipkart.constant.GenderConstant;
 import com.flipkart.constant.RoleConstant;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public class Professor extends User {
 	private String professorID;
 	private String department;

@@ -5,9 +5,14 @@ package com.flipkart.bean;
 
 
 /*
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 
 import com.flipkart.constant.GradeConstant;
 
@@ -31,7 +36,7 @@ public class RegisteredCourse
 	 * @param course the course to set
 	 */
 	public void setCourse(Course course) {
-		this.course = new Course(course.getCourseCode(), course.getCourseName(), course.getInstructorId() ,course.getSeats());
+		this.course = new Course(course.getCourseCode(), course.getCourseName(), course.getInstructorId() ,course.getSeats(),course.getFees());
 	}
 	
 	

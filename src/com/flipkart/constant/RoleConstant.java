@@ -2,9 +2,12 @@ package com.flipkart.constant;
 
 /**
  * 
- * @author rahul.kumar
- * Enumeration class for RoleConstant Types
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
 public enum RoleConstant {
 	ADMIN,PROFESSOR,STUDENT;

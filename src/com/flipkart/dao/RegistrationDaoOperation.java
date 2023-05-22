@@ -18,11 +18,15 @@ import com.flipkart.utils.DBUtils;
 
 /**
  * 
- * @author rahul.kumar
- * Class to implement Registration Dao Operations
- * This class communicates with the database.
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
+ 
 public class RegistrationDaoOperation implements RegistrationDaoInterface{
     
 	
@@ -351,7 +355,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 
 			while (rs.next()) {
 				availableCourseList.add(new Course(rs.getString("courseCode"), rs.getString("courseName"),
-						rs.getString("professorId"), rs.getInt("seats")));
+						rs.getString("professorId"), rs.getInt("seats"),rs.getInt("courseFee")));
 
 			}
 			
@@ -395,7 +399,7 @@ public class RegistrationDaoOperation implements RegistrationDaoInterface{
 			
 			while (rs.next()) {
 				registeredCourseList.add(new Course(rs.getString("courseCode"), rs.getString("courseName"),
-						rs.getString("professorId"), rs.getInt("seats")));
+						rs.getString("professorId"), rs.getInt("seats"),rs.getInt("courseFee")));
 
 			}
 		} 

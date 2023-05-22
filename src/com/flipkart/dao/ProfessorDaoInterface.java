@@ -7,9 +7,14 @@ import com.flipkart.bean.Student;
 
 /**
  * 
- * @author rahul.kumar
- * 
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public interface ProfessorDaoInterface {
 	
 	/**

@@ -15,9 +15,13 @@ import com.flipkart.exception.SeatNotAvailableException;
 
 /**
  * 
- * @author rahul.kumar
- * Interface for Registration Operation
- * 
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
+ 
  */
 public interface RegistrationInterface {
 	

@@ -15,8 +15,14 @@ import com.flipkart.constant.SQLQueriesConstant;
 import com.flipkart.utils.DBUtils;
 
 /**
- * @author rahul.kumar
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class ProfessorDaoOperation implements ProfessorDaoInterface {
 
 	private static volatile ProfessorDaoOperation instance=null;
@@ -64,7 +70,7 @@ public class ProfessorDaoOperation implements ProfessorDaoInterface {
 			ResultSet results=statement.executeQuery();
 			while(results.next())
 			{
-				courseList.add(new Course(results.getString("courseCode"),results.getString("courseName"),results.getString("professorId"),results.getInt("seats")));
+				courseList.add(new Course(results.getString("courseCode"),results.getString("courseName"),results.getString("professorId"),results.getInt("seats"),results.getInt("courseFee")));
 			}
 		}
 		catch(SQLException e)

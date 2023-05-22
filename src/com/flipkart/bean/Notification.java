@@ -6,9 +6,14 @@ package com.flipkart.bean;
 import com.flipkart.constant.NotificationTypeConstant;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 
 //GLOBAL VAR
 

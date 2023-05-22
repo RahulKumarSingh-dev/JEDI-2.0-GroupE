@@ -3,9 +3,14 @@ package com.flipkart.exception;
 
 /**
  * Exception to check if user exists 
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class UserNotFoundException extends Exception {
 
 	private String userId;

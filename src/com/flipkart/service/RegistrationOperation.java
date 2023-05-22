@@ -14,11 +14,7 @@ import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.SeatNotAvailableException;
 import com.flipkart.validator.StudentValidator;
 
-/**
- * @author rahul.kumar
- * The Registration Operation provides the business logic for student registration.
- * 
- */
+
 public class RegistrationOperation implements RegistrationInterface {
 
 	private static volatile RegistrationOperation instance = null;
@@ -26,11 +22,7 @@ public class RegistrationOperation implements RegistrationInterface {
 	private RegistrationOperation() {
 	}
 
-	/**
-	 * Method to make Registration Operation Singleton
-	 * 
-	 * @return
-	 */
+
 	public static RegistrationOperation getInstance() {
 		if (instance == null) {
 			synchronized (RegistrationOperation.class) {
@@ -42,17 +34,7 @@ public class RegistrationOperation implements RegistrationInterface {
 
 	RegistrationDaoInterface registrationDaoInterface = RegistrationDaoOperation.getInstance();
 
-	/**
-	 * Method to add Course selected by student 
-	 * @param courseCode
-	 * @param studentId
-	 * @param courseList 
-	 * @return boolean indicating if the course is added successfully
-	 * @throws CourseNotFoundException
-	 * @throws SeatNotAvailableException 
-	 * @throws CourseLimitExceedException 
-	 * @throws SQLException 
-	 */
+
 	@Override
 	
 	public boolean addCourse(String courseCode, String studentId,List<Course> availableCourseList) throws CourseNotFoundException, CourseLimitExceededException, SeatNotAvailableException, SQLException 
@@ -83,15 +65,7 @@ public class RegistrationOperation implements RegistrationInterface {
 
 	}
 
-	/**
-	 *  Method to drop Course selected by student
-	 * @param courseCode
-	 * @param studentId
-	 * @param registeredCourseList 
-	 * @return boolean indicating if the course is dropped successfully
-	 * @throws CourseNotFoundException
-	 * @throws SQLException 
-	 */
+
 	@Override
 	
 	public boolean dropCourse(String courseCode, String studentId,List<Course> registeredCourseList) throws CourseNotFoundException, SQLException {
@@ -104,12 +78,7 @@ public class RegistrationOperation implements RegistrationInterface {
 
 	}
 
-	/** Method for Fee Calculation for selected courses
-	 * Fee calculation for selected courses
-	 * @param studentId
-	 * @return Fee Student has to pay
-	 * @throws SQLException 
-	 */
+
 	@Override
 	
 	public double calculateFee(String studentId) throws SQLException {
@@ -117,59 +86,34 @@ public class RegistrationOperation implements RegistrationInterface {
 	}
 
 
-	/**
-	 * Method to view grade card for students
-	 * @param studentId
-	 * @return List of Student's Grades
-	 * @throws SQLException 
-	 */
 	@Override
 	
 	public List<Grade> viewGradeCard(String studentId) throws SQLException {
 		return registrationDaoInterface.viewGradeCard(studentId);
 	}
 
-	/**
-	 *  Method to view the list of available courses
-	 * @param studentId
-	 * @return List of courses
-	 * @throws SQLException 
-	 */
+	
 	@Override
 	
 	public List<Course> viewCourses(String studentId) throws SQLException {
 		return registrationDaoInterface.viewCourses(studentId);
 	}
 
-	/**
-	 * Method to view the list of courses registered by the student
-	 * @param studentId
-	 * @return List of courses
-	 * @throws SQLException 
-	 */
+	
 	@Override
 	
 	public List<Course> viewRegisteredCourses(String studentId) throws SQLException {
 		return registrationDaoInterface.viewRegisteredCourses(studentId);
 	}
     
-	/**
-	 *  Method to check student registration status
-	 * @param studentId
-	 * @return boolean indicating if the student's registration status
-	 * @throws SQLException
-	 */
+
 	@Override
 
 	public boolean getRegistrationStatus(String studentId) throws SQLException {
 		return registrationDaoInterface.getRegistrationStatus(studentId);
 	}
 	
-	/**
-	 * Method to set student registration status
-	 * @param studentId
-	 * @throws SQLException
-	 */
+	
 	@Override
 	
 	public void setRegistrationStatus(String studentId) throws SQLException {

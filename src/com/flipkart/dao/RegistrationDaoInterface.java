@@ -8,9 +8,14 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.Grade;
 
 /**
- * @author rahul.kumar
- * Interface for Registration DAO Operation
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 
 
 public interface RegistrationDaoInterface {

@@ -10,8 +10,14 @@ import com.flipkart.dao.ProfessorDaoOperation;
 import com.flipkart.exception.GradeNotAllotedException;
 
 /**
- * @author rahul.kumar
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class ProfessorOperation implements ProfessorInterface {
 	
 	private static volatile ProfessorOperation instance=null;

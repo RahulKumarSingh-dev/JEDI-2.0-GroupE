@@ -2,10 +2,14 @@ package com.flipkart.constant;
 
 /**
  * 
- * @author rahul.kumar
- * Enumeration class for GradeConstant
- * 
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public enum GradeConstant {
     A(10),
     A_MINUS(9),

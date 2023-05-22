@@ -6,10 +6,14 @@ import com.flipkart.exception.UserNotFoundException;
 
 /**
  * 
- * @author rahul.kumar
- * Implementations of User Operations
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class UserOperation implements UserInterface {
 	
 	private static volatile UserOperation instance=null;

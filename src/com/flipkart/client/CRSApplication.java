@@ -22,8 +22,12 @@ import com.flipkart.service.UserInterface;
 import com.flipkart.service.UserOperation;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
 public class CRSApplication {
 
@@ -81,7 +85,7 @@ public class CRSApplication {
 	 */
 	public static void createMainMenu()
 	{
-		System.out.println("----------Welcome to Course Management System---------");
+		System.out.println("----------Welcome to Course Registration System---------");
 		System.out.println("1. Login");
 		System.out.println("2. Student Registration");
 		System.out.println("3. Update password");
@@ -94,10 +98,7 @@ public class CRSApplication {
 	 */
 	public void loginUser()
 	{
-		//multiple exceptions are possible
-		//invalid credential exception
-		//user not found exception
-		//user not approved exception
+		
 		Scanner in = new Scanner(System.in);
 
 		String userId,password;
@@ -110,10 +111,7 @@ public class CRSApplication {
 			password = in.next();
 			loggedin = userInterface.verifyCredentials(userId, password);
 			
-			//2 cases1
 			
-			
-			//true->role->student->approved
 			if(loggedin)
 			{
 				 
@@ -125,9 +123,7 @@ public class CRSApplication {
 				
 				 String role = userInterface.getRole(userId);
 			
-			
-				 
-				 
+			 
 				switch(role) {
 				case "ADMIN":
 					System.out.println(formattedDate + " Login Successful");

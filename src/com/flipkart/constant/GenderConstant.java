@@ -2,10 +2,14 @@ package com.flipkart.constant;
 
 /**
  * 
- * @author rahul.kumar
- * Enumeration class for GenderConstant
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public enum GenderConstant {
 	MALE(1),FEMALE(2),OTHER(3);
 	private final int gender;

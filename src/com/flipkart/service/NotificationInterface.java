@@ -11,8 +11,12 @@ import com.flipkart.constant.PaymentModeConstant;
 
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
 public interface NotificationInterface {
 
@@ -25,7 +29,7 @@ public interface NotificationInterface {
      */
 
 
-    public int sendNotification(NotificationTypeConstant type,String studentId,PaymentModeConstant modeOfPayment,double amount);
+    public boolean sendNotification(NotificationTypeConstant type,String studentId,PaymentModeConstant modeOfPayment,double amount);
 
 	/**
 	 * Method to return UUID for a transaction

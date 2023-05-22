@@ -6,9 +6,14 @@ package com.flipkart.service;
 import com.flipkart.exception.UserNotFoundException;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public interface UserInterface {
 
 	

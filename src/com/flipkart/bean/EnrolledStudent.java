@@ -1,12 +1,14 @@
-/**
- * 
+/**Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 package com.flipkart.bean;
 
-/**
- * @author rahul.kumar
- *
- */
+
 public class EnrolledStudent {
 	String courseCode;
 	String courseName;

@@ -1,9 +1,14 @@
 package com.flipkart.exception;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class StudentIdAlreadyInUseException extends Exception{
 	private String StudentId;
 	

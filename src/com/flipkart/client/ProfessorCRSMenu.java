@@ -16,9 +16,14 @@ import com.flipkart.validator.ProfessorValidator;
 
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class ProfessorCRSMenu {
 	
 	ProfessorInterface professorInterface = ProfessorOperation.getInstance();

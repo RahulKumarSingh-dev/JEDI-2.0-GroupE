@@ -9,12 +9,8 @@ import com.flipkart.bean.Student;
 import com.flipkart.client.CRSApplication;
 import com.flipkart.constant.GenderConstant;
 
-/**
- * 
- * @author rahul.kumar
- * Implementations of Student Operations
- *
- */
+
+
 public class StudentOperation implements StudentInterface {
 	
 	private static volatile StudentOperation instance=null;
@@ -25,10 +21,8 @@ public class StudentOperation implements StudentInterface {
 	{
 		
 	}
-	/**
-	 * Method to make StudentOperation Singleton
-	 * @return
-	 */
+
+
 	public static StudentOperation getInstance()
 	{
 		if(instance==null)
@@ -41,19 +35,7 @@ public class StudentOperation implements StudentInterface {
 		return instance;
 	}
 	
-	/**
-	 * Method to register a student, although student can't login until it's approved by admin
-	 * @param name
-	 * @param userID
-	 * @param password
-	 * @param gender
-	 * @param batch
-	 * @param branch
-	 * @param address
-	 * @param country
-	 * @return Student ID
-	 * @throws StudentNotRegisteredException
-	 */
+
 	@Override
 	public String register(String name,String userId,String password,GenderConstant gender,int batch,String branch,String address) throws StudentNotRegisteredException{
 		String studentId;
@@ -73,11 +55,11 @@ public class StudentOperation implements StudentInterface {
 		return studentId;
 	}
 
-    /**
-     * Method to get Student ID from User ID
-     * @param userId
-     * @return Student ID
-     */
+	public int calculateFees(String studentId)
+	{
+		return studentDaoInterface.makePayment(studentId);
+	}
+
     @Override
     public String getStudentId(String userId) {
         
@@ -86,12 +68,7 @@ public class StudentOperation implements StudentInterface {
 
 
 
-	
-	/**
-     * Method to check if student is approved by Admin or not
-     * @param studentId
-     * @return boolean indicating if student is approved
-     */
+
 	@Override
 	public boolean isApproved(String studentId) {
 		return studentDaoInterface.isApproved(studentId);

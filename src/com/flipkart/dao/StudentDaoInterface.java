@@ -10,10 +10,14 @@ import com.flipkart.exception.StudentNotRegisteredException;
 
 /**
  * 
- * @author rahul.kumar
- * Interface for Student Operations
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+ 
 public interface StudentDaoInterface {
 	
 	
@@ -24,7 +28,7 @@ public interface StudentDaoInterface {
 	 * @throws StudentNotRegisteredException
 	 */
 	public String addStudent(Student student) throws StudentNotRegisteredException;
-	
+	public int makePayment(String studentId);
 	
 	/**
 	 * Method to retrieve Student Id from User Id

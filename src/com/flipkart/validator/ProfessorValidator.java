@@ -8,10 +8,14 @@ import com.flipkart.bean.RegisteredCourse;
 
 /**
  * 
- * @author rahul.kumar
- * Class for Professor Validator
- * 
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
+
 public class ProfessorValidator {
 	
 	/**

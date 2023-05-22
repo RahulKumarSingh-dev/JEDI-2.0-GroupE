@@ -8,10 +8,7 @@ import java.sql.SQLException;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.constant.PaymentModeConstant;
 
-/**
- * @author rahul.kumar
- *
- */
+
 public interface NotificationDaoInterface {
 
 	/**
@@ -23,6 +20,6 @@ public interface NotificationDaoInterface {
 	 * @return notification id for the record added in the database
 	 * @throws SQLException
 	 */
-	public int sendNotification(NotificationTypeConstant type,int studentId,PaymentModeConstant modeOfPayment,double amount) throws SQLException;
+	public boolean sendNotification(NotificationTypeConstant type,int studentId,PaymentModeConstant modeOfPayment,double amount) throws SQLException;
 	
 }

@@ -30,8 +30,12 @@ import com.flipkart.service.RegistrationInterface;
 import com.flipkart.service.RegistrationOperation;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
 public class AdminCRSMenu {
 
@@ -147,7 +151,7 @@ public class AdminCRSMenu {
 		System.out.println("Enter Course Fees:");
 		int courseFees = in.nextInt();
 		
-		Course course = new Course(courseCode, courseName,"", 10);
+		Course course = new Course(courseCode, courseName,"", 10,courseFees);
 		course.setCourseCode(courseCode);
 		course.setCourseName(courseName);
 		course.setSeats(10);

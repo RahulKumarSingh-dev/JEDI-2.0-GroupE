@@ -4,8 +4,12 @@
 package com.flipkart.constant;
 
 /**
- * @author rahul.kumar
- *
+ * Group -E
+ * rahul.kumar
+ * ishika.gupta
+ * nishant.singh
+ * sri.vyshnavi
+ * kartik.garg
  */
 public enum NotificationTypeConstant
 {

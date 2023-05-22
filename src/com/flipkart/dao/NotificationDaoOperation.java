@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.flipkart.dao;
 
 import java.sql.Connection;
@@ -17,28 +15,20 @@ import com.flipkart.constant.PaymentModeConstant;
 import com.flipkart.constant.SQLQueriesConstant;
 import com.flipkart.utils.DBUtils;
 
-/**
- * @author rahul.kumar
- *
- */
+
 public class NotificationDaoOperation implements NotificationDaoInterface{
 
 	
 	private static volatile NotificationDaoOperation instance=null;
 	private static Logger logger = Logger.getLogger(NotificationDaoOperation.class);
 
-	/**
-	 * Default Constructor
-	 */
+
 	private NotificationDaoOperation()
 	{
 
 	}
 	
-	/**
-	 * Method to make NotificationDaoOperation Singleton
-	 * @return
-	 */
+
 	public static NotificationDaoOperation getInstance()
 	{
 		if(instance==null)
@@ -51,17 +41,9 @@ public class NotificationDaoOperation implements NotificationDaoInterface{
 		return instance;
 	}
 	
-	/**
-	 * Send Notification using SQL commands
-	 * @param type: type of the notification to be sent
-	 * @param studentId: student to be notified
-	 * @param modeOfPayment: mode of payment used, defined in enum
-	 * @param amount
-	 * @return notification id for the record added in the database
-	 * @throws SQLException
-	 */
+
 	@Override
-	public int sendNotification(NotificationTypeConstant type, int studentId,PaymentModeConstant modeOfPayment,double amount) throws SQLException{
+	public boolean sendNotification(NotificationTypeConstant type, int studentId,PaymentModeConstant modeOfPayment,double amount) throws SQLException{
 		int notificationId=0;
 		Connection connection=DBUtils.getConnection();
 		try
@@ -101,17 +83,10 @@ public class NotificationDaoOperation implements NotificationDaoInterface{
 		{
 			throw ex;
 		}
-		return notificationId;
+//		return notificationId;
+		return true;
 	}
 
-	/**
-	 * Perform Payment actions using SQL commands
-	 * @param studentId: Id of the student for which the payment is done
-	 * @param modeOfPayment: mode of payment used, defined in enum
-	 * @param amount 
-	 * @return: reference id of the transaction
-	 * @throws SQLException
-	 */
 	public UUID addPayment(int studentId, PaymentModeConstant modeOfPayment,double amount) throws SQLException
 	{
 		UUID referenceId;
