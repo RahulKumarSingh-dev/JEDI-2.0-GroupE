@@ -78,9 +78,10 @@ public class ProfessorCRSMenu {
 	    System.out.printf("| %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "Student");
 	    try {
 	        List<EnrolledStudent> enrolledStudents = professorInterface.viewEnrolledStudents(profID);
-	        for (EnrolledStudent obj : enrolledStudents) {
-	            System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getStudentId());
-	        }
+	        enrolledStudents.forEach(obj -> {
+    System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getStudentId());
+});
+
 	    } catch (Exception ex) {
 	        System.out.println(ex.getMessage() + " Something went wrong, please try again later!");
 	    }
@@ -118,9 +119,8 @@ public class ProfessorCRSMenu {
 			List<EnrolledStudent> enrolledStudents = professorInterface.viewEnrolledStudents(profId);
 			System.out.println("+---------------------- Enrolled Students ----------------------+");
 			System.out.printf("| %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "Student ID");
-			for (EnrolledStudent obj : enrolledStudents) {
-			    System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getStudentId());
-			}
+			enrolledStudents.forEach(obj -> System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getStudentId()));
+
 			System.out.println("+--------------------------------------------------------------+");
 
 			List<Course> coursesEnrolled = new ArrayList<Course>();
