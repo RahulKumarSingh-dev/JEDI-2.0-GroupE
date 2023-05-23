@@ -134,9 +134,9 @@ public class AdminCRSMenu {
 	    System.out.println("+----------------------+----------------------+----------------------+----------------------+");
 	    System.out.printf("| %-20s | %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "INSTRUCTOR", "COURSE FEES");
 	    System.out.println("+----------------------+----------------------+----------------------+----------------------+");
-	    for (Course course : courseList) {
-	        System.out.printf("| %-20s | %-20s | %-20s | %-20s |\n", course.getCourseCode(), course.getCourseName(), course.getInstructorId(), course.getFees());
-	    }
+	    courseList.forEach(course -> {
+    System.out.printf("| %-20s | %-20s | %-20s | %-20s |\n", course.getCourseCode(), course.getCourseName(), course.getInstructorId(), course.getFees());
+});
 	    System.out.println("+----------------------+----------------------+----------------------+----------------------+");
 	    return courseList;
 	}
@@ -248,12 +248,10 @@ public class AdminCRSMenu {
 	        System.out.println("+----------------------+");
 	        System.out.println("|     Student ID       |");
 	        System.out.println("+----------------------+");
-	        for (Student student : studentList) {
-	            String studentUserIdApproval = student.getUserId();
-	            System.out.printf("| %-20s |\n", studentUserIdApproval);
-	            // send notification from system
-	            // notificationInterface.sendNotification(NotificationTypeConstant.REGISTRATION, studentUserIdApproval, null, 0);
-	        }
+	        studentList.forEach(student -> {
+    String studentUserIdApproval = student.getUserId();
+    System.out.printf("| %-20s |\n", studentUserIdApproval);
+});
 	        System.out.println("+----------------------+");
 
 	    } catch (StudentNotFoundForApprovalException e) {
@@ -275,9 +273,10 @@ public class AdminCRSMenu {
 	    System.out.println("+----------------------+----------------------+----------------------+");
 	    System.out.printf("| %-20s | %-20s | %-20s |\n", "Student ID", "Name", "Gender");
 	    System.out.println("+----------------------+----------------------+----------------------+");
-	    for (Student student : pendingStudentsList) {
-	        System.out.printf("| %-20s | %-20s | %-20s |\n", student.getStudentId(), student.getName(), student.getGender().toString());
-	    }
+	    pendingStudentsList.forEach(student -> {
+    System.out.printf("| %-20s | %-20s | %-20s |\n", student.getStudentId(), student.getName(), student.getGender().toString());
+});
+
 	    System.out.println("+----------------------+----------------------+----------------------+");
 	    return pendingStudentsList;
 	}
@@ -344,19 +343,20 @@ public class AdminCRSMenu {
 		List<Professor> professorList= adminOperation.viewProfessors();
 		System.out.println("---------------------- Professor ---------------------- ");
 		System.out.println(String.format("%-20s | %-20s | %-20s ", "ProfessorId", "Name", "Designation"));
-		for(Professor professor : professorList) {
-			System.out.println(String.format("%-20s | %-20s | %-20s ", professor.getUserId(), professor.getName(), professor.getDesignation()));
-		}
+		professorList.forEach(professor -> {
+    System.out.println(String.format("%-20s | %-20s | %-20s ", professor.getUserId(), professor.getName(), professor.getDesignation()));
+});
+
 		
 		
 		System.out.println("\n\n");
 		List<Course> courseList= adminOperation.viewCourses();
 		System.out.println("---------------------- Course ----------------------");
 		System.out.println(String.format("%-20s | %-20s | %-20s", "CourseCode", "CourseName", "ProfessorId"));
-		for(Course course : courseList) {
-			System.out.println(String.format("%-20s | %-20s | %-20s", course.getCourseCode(), course.getCourseName(), course.getInstructorId()));
-		}
-		
+		courseList.forEach(course -> {
+    System.out.println(String.format("%-20s | %-20s | %-20s", course.getCourseCode(), course.getCourseName(), course.getInstructorId()));
+});
+
 		System.out.println("+----------------------------------------+");
 		System.out.println("| Enter Course Code:                     |");
 		String courseCode = in.next();
