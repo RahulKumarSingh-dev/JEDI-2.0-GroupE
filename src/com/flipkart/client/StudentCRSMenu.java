@@ -185,15 +185,7 @@ public class StudentCRSMenu {
 		}
 		is_registered = true;
 
-//    try 
-//    {
-//		registrationInterface.setRegistrationStatus(studentId);
-//	} 
-//    catch (SQLException e) 
-//    {
-//    	System.out.println(e.getMessage());
-//	}
-	}
+
 	
 	/*
 	 * Method to add course according StudentId
@@ -300,9 +292,8 @@ public class StudentCRSMenu {
 	    System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "INSTRUCTOR", "SEATS", "FEES");
 	    System.out.println("+----------------------+----------------------+----------------------+----------------------+----------------------+");
 
-	    for (Course obj : course_available) {
-	        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId(), obj.getSeats(), obj.getFees());
-	    }
+	    course_available.forEach(obj -> System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId(), obj.getSeats(), obj.getFees()));
+
 
 	    System.out.println("+----------------------+----------------------+----------------------+----------------------+----------------------+");
 
@@ -333,9 +324,8 @@ public class StudentCRSMenu {
 	    System.out.printf("| %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "INSTRUCTOR");
 	    System.out.println("+----------------------+----------------------+----------------------+");
 
-	    for (Course obj : course_registered) {
-	        System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId());
-	    }
+	   course_registered.forEach(obj -> System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId()));
+
 
 	    System.out.println("+----------------------+----------------------+----------------------+");
 
@@ -382,11 +372,12 @@ public class StudentCRSMenu {
 	                System.out.println("You haven't registered for any course");
 	                return;
 	            }
-	            for (Grade obj : grade_card) {
-	            	System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCrsCode(), obj.getCrsName(), obj.getGrade());
-			        sum += getValue(obj.getGrade());
-			        count++;
-			    }
+	            grade_card.forEach(obj -> {
+    System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCrsCode(), obj.getCrsName(), obj.getGrade());
+    sum += getValue(obj.getGrade());
+    count++;
+});
+
 	            double cpi = sum * 1.0 / count;
 	            System.out.println("CPI = "+cpi);
 
