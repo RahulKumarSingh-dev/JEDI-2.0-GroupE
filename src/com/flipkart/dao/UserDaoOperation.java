@@ -41,7 +41,7 @@ public class UserDaoOperation implements UserDaoInterface{
 	{
 		if(instance==null)
 		{
-			// This is a synchronized block, when multiple threads will access this instance
+			// This is a synchronised block, when multiple threads will access this instance
 			synchronized(UserDaoOperation.class){
 				instance=new UserDaoOperation();
 			}
@@ -80,7 +80,6 @@ public class UserDaoOperation implements UserDaoInterface{
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -99,7 +98,7 @@ public class UserDaoOperation implements UserDaoInterface{
 		Connection connection = DBUtils.getConnection();
 		try
 		{
-			//open db connection
+			//opening database connection
 			PreparedStatement preparedStatement=connection.prepareStatement(SQLQueriesConstant.VERIFY_CREDENTIALS);
 			preparedStatement.setString(1,userId);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -129,7 +128,7 @@ public class UserDaoOperation implements UserDaoInterface{
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -143,7 +142,7 @@ public class UserDaoOperation implements UserDaoInterface{
 	 */
 	@Override
 	public boolean updatePassword(String userID) {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return false;
 	}
 	

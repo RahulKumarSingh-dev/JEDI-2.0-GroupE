@@ -15,7 +15,7 @@ public enum GenderConstant {
 	private final int gender;
 	
 	/**
-	 * Parameterized Constructor
+	 * Parameterised Constructor
 	 * @param gender
 	 */
 	private GenderConstant(int gender)

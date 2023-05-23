@@ -31,7 +31,7 @@ public class UserOperation implements UserInterface {
 	{
 		if(instance==null)
 		{
-			// This is a synchronized block, when multiple threads will access this instance
+			// This is a synchronised block, when multiple threads will access this instance
 			synchronized(UserOperation.class){
 				instance=new UserOperation();
 			}

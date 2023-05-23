@@ -120,9 +120,10 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
 			statement.setString(1, course.getCourseCode());
 			statement.setString(2, course.getCourseName());
-
+			
 			statement.setInt(3, 10);
 			statement.setString(4, "NOT_GRADED");
+			statement.setInt(5, course.getFees());
 			int row = statement.executeUpdate();
 
 			logger.info(row + " course added");

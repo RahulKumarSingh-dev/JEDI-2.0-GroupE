@@ -24,7 +24,7 @@ public enum GradeConstant {
     final private int value;
 
     /**
-     * Parameterized Constructor
+     * Parameterised Constructor
      * @param value
      */
     private GradeConstant(int value) {

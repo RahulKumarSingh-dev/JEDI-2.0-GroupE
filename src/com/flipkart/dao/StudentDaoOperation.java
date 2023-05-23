@@ -45,7 +45,7 @@ public class StudentDaoOperation implements StudentDaoInterface {
 	 */
 	public static StudentDaoOperation getInstance() {
 		if (instance == null) {
-			// This is a synchronized block, when multiple threads will access this instance
+			// This is a synchronised block, when multiple threads will access this instance
 			synchronized (StudentDaoOperation.class) {
 				instance = new StudentDaoOperation();
 			}

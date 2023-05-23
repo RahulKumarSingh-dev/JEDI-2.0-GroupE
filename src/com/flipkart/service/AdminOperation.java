@@ -68,7 +68,7 @@ public class AdminOperation implements AdminInterface{
 	
 	/**
 	 * Method to generate grade card of a Student 
-	 * studentid 
+	 * @param studentid 
 	 */
 	
 	public List<RegisteredCourse> generateGradeCard(String Studentid)

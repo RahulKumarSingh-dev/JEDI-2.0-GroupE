@@ -44,3 +44,4 @@
 16:32:03,023 ERROR AdminDaoOperation,main:179 - No operations allowed after connection closed.
 16:32:09,292 ERROR AdminDaoOperation,main:179 - No operations allowed after connection closed.
 16:32:19,899 ERROR AdminDaoOperation,main:179 - No operations allowed after connection closed.
+08:45:24,799 ERROR AdminDaoOperation,main:100 - Cannot delete or update a parent row: a foreign key constraint fails (`crsdatabase`.`registeredcourse`, CONSTRAINT `reg_course_course_code` FOREIGN KEY (`courseCode`) REFERENCES `course` (`courseCode`))

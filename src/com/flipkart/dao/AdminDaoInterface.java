@@ -36,10 +36,7 @@ public interface AdminDaoInterface {
 	
 	/**
 	 * Method to generate grade card of a Student 
-	 * studentid 
-	 * @return 
-	 * 
-	 * 
+	 * @param:StudentId
 	 */
 	
 	public void setGeneratedReportCardTrue(String Studentid);
@@ -54,15 +51,14 @@ public interface AdminDaoInterface {
 	
 	/**
 	 * Method to approve a Student 
-	 * studentid
-	 * studentlist
+	 * @param:studentid
 	 */
 	
 	
 	public void approveStudent(String studentid) throws StudentNotFoundForApprovalException;
 	
 	/**
-	 * Method to add Professor to DB
+	 * Method to add Professor to Database
 	 * professor : Professor Object storing details of a professor 
 	 */
 	
@@ -71,7 +67,7 @@ public interface AdminDaoInterface {
 	/**
 	 * Method to Delete Course from Course Catalog
 	 * @param courseCode
-	 * @param courseList : Courses available in the catalog
+	 * @param courseList : Courses available in the Catalog
 	 * @throws CourseNotFoundException 
 	 * @throws CourseNotDeletedException 
 	 */
@@ -81,7 +77,7 @@ public interface AdminDaoInterface {
 	/**
 	 * Method to add Course to Course Catalog
 	 * @param course : Course object storing details of a course
-	 * @param courseList : Courses available in the catalog
+	 * @param courseList : Courses available in the Catalog
 	 * @throws CourseExistsAlreadyException;
 	 */
 	

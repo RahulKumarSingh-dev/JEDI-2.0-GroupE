@@ -113,11 +113,6 @@ public class CRSApplication {
 		String userId,password;
 		try
 		{
-//			System.out.println("-----------------Login------------------");
-//			System.out.println("Enter Email:");
-//			userId = in.next();
-//			System.out.println("Enter Password:");
-//			password = in.next();
 			
 			System.out.println("+-----------------Login------------------+");
 			System.out.println("|              Enter Email               |");
@@ -172,7 +167,7 @@ public class CRSApplication {
 						studentMenu.create_menu(studentId);
 						
 					} else {
-						System.out.println("Failed to login, you have not been approved by the administration!");
+						System.out.println("Failed to login, you have not been approved by the Admin!");
 						loggedin=false;
 					}
 					break;
@@ -194,7 +189,7 @@ public class CRSApplication {
 	}
 	
 	/**
-	 * Method to help Student register themselves, pending admin approval
+	 * Method to help Student register themselves, pending Admin approval
 	 */
 	public void registerStudent()
 	{
@@ -206,16 +201,43 @@ public class CRSApplication {
 		try
 		{
 			//input all the student details
-			System.out.println("---------------Student Registration-------------");
-			System.out.println("Enter Name:");
-			name=sc.nextLine();
-			System.out.println("Enter Email:");
-			userId=sc.next();
-			System.out.println("Enter Password:");
-			password=sc.next();
-			System.out.println("GenderConstant: \t 1: Male \t 2.Female\t 3.Other");
-			genderV=sc.nextInt();
+			System.out.println("+------------------------Student Registration------------------------+");
+			System.out.println("|                           Enter Details                            |");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.print("| Enter Name:     ");
+			name = sc.nextLine();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.print("| Enter Email:    ");
+			userId = sc.next();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.print("| Enter Password: ");
+			password = sc.next();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.println("| GenderConstant:   1: Male   2. Female   3. Other                   |");
+			System.out.print("| Enter Gender:   ");
+			genderV = sc.nextInt();
 			sc.nextLine();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			
+			System.out.print("| Enter Branch:  ");
+			branchName = sc.nextLine();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.print("| Enter Batch:   ");
+			batch = sc.nextInt();
+			sc.nextLine();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+			System.out.print("| Enter Address: ");
+			address = sc.nextLine();
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------------------+");
+
+
 			
 			switch(genderV)
 			{
@@ -233,13 +255,6 @@ public class CRSApplication {
 				gender=GenderConstant.OTHER;
 			}
 			
-			System.out.println("Enter Branch:");
-			branchName=sc.nextLine();
-			System.out.println("Enter Batch:");
-			batch=sc.nextInt();
-			sc.nextLine();
-			System.out.println("Enter Address:");
-			address=sc.nextLine();
 			
 			
 			String newStudentId = studentInterface.register(name, userId, password, gender, batch, branchName, address);
@@ -261,11 +276,21 @@ public class CRSApplication {
 		Scanner in = new Scanner(System.in);
 		String userId,newPassword;
 		try {
-			System.out.println("------------------Update Password--------------------");
-			System.out.println("Enter Email");
-			userId=in.next();
-			System.out.println("Enter New Password:");
-			newPassword=in.next();
+
+			System.out.println("+------------------Update Password--------------------+");
+			System.out.println("|                    Enter Details                    |");
+			System.out.println("+-----------------------------------------------------+");
+			System.out.println("| Enter Email:                                        |");
+			System.out.print("| ");
+			userId = in.next();
+			System.out.println("|");
+			System.out.println("+-----------------------------------------------------+");
+			System.out.println("| Enter New Password:                                 |");
+			System.out.print("| ");
+			newPassword = in.next();
+			System.out.println("|");
+			System.out.println("+-----------------------------------------------------+");
+
 			boolean isUpdated=userInterface.updatePassword(userId, newPassword);
 			if(isUpdated)
 				System.out.println("Password updated successfully!");

@@ -8,7 +8,7 @@ public class SQLQueriesConstant {
 
 	// AdminDao Queries
 	public static final String DELETE_COURSE_QUERY = "delete from Course where courseCode = ?";
-	public static final String ADD_COURSE_QUERY = "insert into Course(courseCode, courseName, seats, professorId) values (?, ?, ?, ?)";
+	public static final String ADD_COURSE_QUERY = "insert into Course(courseCode, courseName, seats, professorId,courseFee) values (?, ?, ?, ?, ?)";
 	public static final String VIEW_PENDING_ADMISSION_QUERY = "select userId,name, password, role, gender, address, studentId from student, user where isApproved = 0 and studentId = userId";
 	public static final String APPROVE_STUDENT_QUERY = "update Student set isApproved = 1 where studentId = ?";
 	public static final String ADD_USER_QUERY = "insert into User(userId, name, password, role, gender, address) values (?, ?, ?, ?, ?, ?)";
@@ -45,6 +45,8 @@ public class SQLQueriesConstant {
 	public static final String CALCULATE_FEE = " SELECT sum(course.courseFee) as total FROM course join registeredcourse on course.courseCode=registeredcourse.courseCode and registeredCourse.studentId=? ";
 	public static final String GET_GRADES = "select grade from registeredcourse where studentId=?";
 	public static final String ADD_PAYMENT = "insert into payment values(?,?,?,?)";
+	
+	
 	// ProfessorDao queries
 
 	public static final String UPDATE_PASSWORD = "update user set password=? where userId = ? ";

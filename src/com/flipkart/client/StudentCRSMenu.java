@@ -32,23 +32,41 @@ public class StudentCRSMenu {
 //	NotificationInterface notificationInterface = NotificationOperation.getInstance();
 	private boolean is_registered;
 
+	/*
+	 * Method to Create menu for student
+	 * @param: StudentId
+	 */
 	public void create_menu(String studentId) {
 
 		is_registered = getRegistrationStatus(studentId);
 
 		while (CRSApplication.loggedin) {
 
-			System.out.println("\n************* Student Menu *************\n");
+			
+			String title = "Student Menu";
+			String[] menuOptions = {
+			        "Register for Course",
+			        "Add Course",
+			        "Drop Course",
+			        "View Course",
+			        "View Registered Courses",
+			        "View grade card",
+			        "Make Payment",
+			        "Logout"
+			};
 
-			System.out.println("1. Register for Course");
-			System.out.println("2. Add Course");
-			System.out.println("3. Drop Course");
-			System.out.println("4. View Course");
-			System.out.println("5. View Registered Courses");
-			System.out.println("6. View grade card");
-			System.out.println("7. Make Payment");
-			System.out.println("8. Logout");
-			System.out.println("\n*****************************************");
+			System.out.println("\n------------ " + title + " ------------\n");
+			System.out.println("+---------------------------------------+");
+			System.out.println("|             Menu Options              |");
+			System.out.println("+---------------------------------------+");
+
+			for (int i = 0; i < menuOptions.length; i++) {
+			    String option = menuOptions[i];
+			    System.out.printf("| %2d. %-34s|\n", i + 1, option);
+			}
+
+			System.out.println("+---------------------------------------+");
+
 
 			int choice = sc.nextInt();
 
@@ -94,7 +112,11 @@ public class StudentCRSMenu {
 		}
 
 	}
-
+	
+	/*
+	 * Method to Register Courses
+	 * @param: StudentId
+	 */
 	private void registerCourses(String studentId) {
 
 		if (is_registered) {
@@ -152,9 +174,9 @@ public class StudentCRSMenu {
 			}
 		}
 
-		System.out.println("\n*******************************************************");
+		System.out.println("\n-----------------------------------------------------");
 		System.out.println("Registration Successful");
-		System.out.println("*******************************************************\n");
+		System.out.println("-------------------------------------------------------\n");
 
 		try {
 			registrationInterface.setRegistrationStatus(studentId);
@@ -172,7 +194,11 @@ public class StudentCRSMenu {
 //    	System.out.println(e.getMessage());
 //	}
 	}
-
+	
+	/*
+	 * Method to add course according StudentId
+	 * @param: StudentId
+	 */
 	private void addCourse(String studentId) {
 		if (is_registered) {
 			List<Course> availableCourseList = viewCourse(studentId);
@@ -223,7 +249,6 @@ public class StudentCRSMenu {
 
 	/**
 	 * Drop Course
-	 * 
 	 * @param studentId
 	 */
 	private void dropCourse(String studentId) {
@@ -258,29 +283,32 @@ public class StudentCRSMenu {
 	 * @return List of available Courses
 	 */
 	private List<Course> viewCourse(String studentId) {
-		List<Course> course_available = null;
+	    List<Course> course_available = null;
 
-		try {
-			course_available = registrationInterface.viewCourses(studentId);
-		} catch (SQLException e) {
+	    try {
+	        course_available = registrationInterface.viewCourses(studentId);
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	    }
 
-			System.out.println(e.getMessage());
-		}
+	    if (course_available.isEmpty()) {
+	        System.out.println("NO COURSE AVAILABLE");
+	        return null;
+	    }
 
-		if (course_available.isEmpty()) {
-			System.out.println("NO COURSE AVAILABLE");
-			return null;
-		}
+	    System.out.println("+----------------------+----------------------+----------------------+----------------------+----------------------+");
+	    System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "INSTRUCTOR", "SEATS", "FEES");
+	    System.out.println("+----------------------+----------------------+----------------------+----------------------+----------------------+");
 
-		System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s", "COURSE CODE", "COURSE NAME", "INSTRUCTOR",
-				"SEATS", "FEES"));
-		for (Course obj : course_available) {
-			System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s", obj.getCourseCode(), obj.getCourseName(),
-					obj.getInstructorId(), obj.getSeats(), obj.getFees()));
-		}
+	    for (Course obj : course_available) {
+	        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId(), obj.getSeats(), obj.getFees());
+	    }
 
-		return course_available;
+	    System.out.println("+----------------------+----------------------+----------------------+----------------------+----------------------+");
+
+	    return course_available;
 	}
+
 
 	/**
 	 * View Registered Courses
@@ -289,63 +317,95 @@ public class StudentCRSMenu {
 	 * @return List of Registered Courses
 	 */
 	private List<Course> viewRegisteredCourse(String studentId) {
-		List<Course> course_registered = null;
-		try {
-			course_registered = registrationInterface.viewRegisteredCourses(studentId);
-		} catch (SQLException e) {
+	    List<Course> course_registered = null;
+	    try {
+	        course_registered = registrationInterface.viewRegisteredCourses(studentId);
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	    }
 
-			System.out.println(e.getMessage());
+	    if (course_registered.isEmpty()) {
+	        System.out.println("You haven't registered for any course");
+	        return null;
+	    }
+
+	    System.out.println("+----------------------+----------------------+----------------------+");
+	    System.out.printf("| %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "INSTRUCTOR");
+	    System.out.println("+----------------------+----------------------+----------------------+");
+
+	    for (Course obj : course_registered) {
+	        System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCourseCode(), obj.getCourseName(), obj.getInstructorId());
+	    }
+
+	    System.out.println("+----------------------+----------------------+----------------------+");
+
+	    return course_registered;
+	}
+
+	private int getValue(String grade) {
+		switch (grade) {	
+		case "A":
+			return 10;
+		case "B":
+			return 8;
+		case "C":
+			return 6;
+		case "D":
+			return 4;
+		case "E":
+			return 2;
+		case "F":
+			return 0;
+		default:
+			return 0;
 		}
-
-		if (course_registered.isEmpty()) {
-			System.out.println("You haven't registered for any course");
-			return null;
-		}
-
-		System.out.println(String.format("%-20s %-20s %-20s", "COURSE CODE", "COURSE NAME", "INSTRUCTOR"));
-
-		for (Course obj : course_registered) {
-
-			System.out.println(String.format("%-20s %-20s %-20s ", obj.getCourseCode(), obj.getCourseName(),
-					obj.getInstructorId()));
-		}
-
-		return course_registered;
 	}
 
 	/**
 	 * View grade card for particular student
-	 * 
 	 * @param studentId
 	 */
 	private void viewGradeCard(String studentId) {
-		List<Grade> grade_card = null;
-		boolean isReportGenerated = false;
+	    List<Grade> grade_card = null;
+	    boolean isReportGenerated = false;
+	   double sum=0,count=0;
 
-		try {
-			isReportGenerated = registrationInterface.isReportGenerated(studentId);
-			if (isReportGenerated) {
-				grade_card = registrationInterface.viewGradeCard(studentId);
-				System.out.println(String.format("%-20s %-20s %-20s", "COURSE CODE", "COURSE NAME", "GRADE"));
+	    try {
+	        isReportGenerated = registrationInterface.isReportGenerated(studentId);
+	        if (isReportGenerated) {
+	            grade_card = registrationInterface.viewGradeCard(studentId);
+	            System.out.println("+----------------------+----------------------+----------------------+");
+	            System.out.printf("| %-20s | %-20s | %-20s |\n", "COURSE CODE", "COURSE NAME", "GRADE");
+	            System.out.println("+----------------------+----------------------+----------------------+");
 
-				if (grade_card.isEmpty()) {
-					System.out.println("You haven't registered for any course");
-					return;
-				}
+	            if (grade_card.isEmpty()) {
+	                System.out.println("You haven't registered for any course");
+	                return;
+	            }
+	            for (Grade obj : grade_card) {
+	            	System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCrsCode(), obj.getCrsName(), obj.getGrade());
+			        sum += getValue(obj.getGrade());
+			        count++;
+			    }
+	            double cpi = sum * 1.0 / count;
+	            System.out.println("CPI = "+cpi);
 
-				for (Grade obj : grade_card) {
-					System.out.println(
-							String.format("%-20s %-20s %-20s", obj.getCrsCode(), obj.getCrsName(), obj.getGrade()));
-				}
-			} else
-				System.out.println("Report card not yet generated");
-		} catch (SQLException e) {
-
-			System.out.println(e.getMessage());
-		}
-
+//	            for (Grade obj : grade_card) {
+//	                System.out.printf("| %-20s | %-20s | %-20s |\n", obj.getCrsCode(), obj.getCrsName(), obj.getGrade());
+//	            }
+	        } else {
+	            System.out.println("Report card not yet generated");
+	        }
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	    }
+	    System.out.println("+----------------------+----------------------+----------------------+");
 	}
-
+	
+	/*
+	 * Method to make payment
+	 * @param: studentId
+	 */
 	private void make_payment(String studentId) {
 
 		double fee = studentInterface.calculateFees(studentId);
@@ -364,8 +424,14 @@ public class StudentCRSMenu {
 			System.out.println("You have not registered yet");
 		} else if (isreg && !ispaid) {
 
-			System.out.println("Your total fee  = " + fee);
-			System.out.println("Want to continue Fee Payment(y/n)");
+			System.out.println("+----------------------------------------+");
+			System.out.println("|        Fee Payment Information         |");
+			System.out.println("+----------------------------------------+");
+			System.out.println("| Your total fee = " + fee + "           |");
+			System.out.println("|                                        |");
+			System.out.println("| Want to continue Fee Payment (y/n)?    |");
+			System.out.println("+----------------------------------------+");
+
 			String ch = sc.next();
 			if (ch.equals("y")) {
 				System.out.println("Select Mode of Payment:");
@@ -385,26 +451,37 @@ public class StudentCRSMenu {
 						switch (mode) {
 						case ONLINE:
 							paymentMode = "ONLINE";
-							System.out.println("Press \n1 for Card");
-							System.out.println("2 for NetBanking");
-							System.out.println("3 to quit");
+							System.out.println("+----------------------------------------+");
+							System.out.println("|         Online Payment Options         |");
+							System.out.println("+----------------------------------------+");
+							System.out.println("| Press 1 for Card                       |");
+							System.out.println("| Press 2 for NetBanking                 |");
+							System.out.println("| Press 3 to quit                        |");
+							System.out.println("+----------------------------------------+");
 							String onlineMode = sc.next();
+
 							switch (onlineMode) {
 							case "1":
-								System.out.println("Please Enter Card Number");
+								System.out.println("+----------------------------------------+");
+								System.out.println("| Please Enter Card Number               |");
 								sc.next();
-								System.out.println("Please Enter Date of Expiry");
+								System.out.println("| Please Enter Date of Expiry            |");
 								sc.next();
-								System.out.println("Please Enter CVV");
+								System.out.println("| Please Enter CVV                       |");
 								sc.next();
-								System.out.println("Fees Paid.");
+								System.out.println("|                                        |");
+								System.out.println("| Fees Paid.                             |");
+								System.out.println("+----------------------------------------+");
 								break;
 							case "2":
-								System.out.println("Please Enter User Name");
+								System.out.println("+----------------------------------------+");
+								System.out.println("| Please Enter User Name                 |");
 								sc.next();
-								System.out.println("Please Enter Password");
+								System.out.println("| Please Enter Password                  |");
 								sc.next();
-								System.out.println("Fees Paid.");
+								System.out.println("|                                        |");
+								System.out.println("| Fees Paid.                             |");
+								System.out.println("+----------------------------------------+");
 								break;
 							default:
 								System.out.println("Invalid Argument");
@@ -414,20 +491,30 @@ public class StudentCRSMenu {
 							break;
 						case OFFLINE:
 							paymentMode = "OFFLINE";
-							System.out.println("Press \n1 for Cash");
-							System.out.println("2 for Cheque");
-							System.out.println("3 to quit");
+							System.out.println("+----------------------------------------+");
+							System.out.println("|         Offline Payment Options        |");
+							System.out.println("+----------------------------------------+");
+							System.out.println("| Press 1 for Cash                       |");
+							System.out.println("| Press 2 for Cheque                     |");
+							System.out.println("| Press 3 to quit                        |");
+							System.out.println("+----------------------------------------+");
 							String offlineMode = sc.next();
+							
 							switch (offlineMode) {
 							case "1":
 								System.out.println("Please Pay your fees at Fee Counter");
 								break;
 							case "2":
-								System.out.println("Please Enter Account Number");
+								System.out.println("+-----------------------------------------------+");
+								System.out.println("|           Cheque Information                  |");
+								System.out.println("+-----------------------------------------------+");
+								System.out.println("| Please Enter Account Number                   |");
 								sc.next();
-								System.out.println("Please Enter IFSC Code");
+								System.out.println("| Please Enter IFSC Code                        |");
 								sc.next();
-								System.out.println("Please Submit your Cheque at Fee Counter");
+								System.out.println("|                                               |");
+								System.out.println("| Please Submit your Cheque at the Fee Counter  |");
+								System.out.println("+-----------------------------------------------+");
 								break;
 							default:
 								System.out.println("Invalid Argument");
