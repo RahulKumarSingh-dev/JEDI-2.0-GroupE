@@ -20,77 +20,78 @@ import com.flipkart.exception.UserNotAddedException;
 import com.flipkart.exception.UserNotFoundException;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
 public interface AdminDaoInterface {
-	
+
 	public List<Course> viewCourses();
+
 	public List<Professor> viewProfessors();
-	
-	
+
 	/**
-	 * Method to generate grade card of a Student 
+	 * Method to generate grade card of a Student
+	 * 
 	 * @param:StudentId
 	 */
-	
+
 	public void setGeneratedReportCardTrue(String Studentid);
-	
+
 	public List<RegisteredCourse> generateGradeCard(String Studentid);
-	
+
 	/**
 	 * Fetch Students yet to approved using SQL commands
+	 * 
 	 * @return List of Students yet to approved
 	 */
 	public List<Student> viewPendingAdmissions();
-	
+
 	/**
-	 * Method to approve a Student 
+	 * Method to approve a Student
+	 * 
 	 * @param:studentid
 	 */
-	
-	
+
 	public void approveStudent(String studentid) throws StudentNotFoundForApprovalException;
-	
+
 	/**
-	 * Method to add Professor to Database
-	 * professor : Professor Object storing details of a professor 
+	 * Method to add Professor to Database professor : Professor Object storing
+	 * details of a professor
 	 */
-	
+
 	public void addProfessor(Professor professor) throws ProfessorNotAddedException, UserIdAlreadyInUseException;
-	
+
 	/**
 	 * Method to Delete Course from Course Catalog
+	 * 
 	 * @param courseCode
 	 * @param courseList : Courses available in the Catalog
-	 * @throws CourseNotFoundException 
-	 * @throws CourseNotDeletedException 
+	 * @throws CourseNotFoundException
+	 * @throws CourseNotDeletedException
 	 */
 
 	public void removeCourse(String coursecode) throws CourseNotFoundException, CourseNotDeletedException;
-	
+
 	/**
 	 * Method to add Course to Course Catalog
-	 * @param course : Course object storing details of a course
+	 * 
+	 * @param course     : Course object storing details of a course
 	 * @param courseList : Courses available in the Catalog
 	 * @throws CourseExistsAlreadyException;
 	 */
-	
+
 	public void addCourse(Course course) throws CourseExistsAlreadyException;
-	
+
 	/**
 	 * Method to assign Course to a Professor
+	 * 
 	 * @param courseCode
 	 * @param professorId
-	 * @throws CourseNotFoundException 
-	 * @throws UserNotFoundException 
+	 * @throws CourseNotFoundException
+	 * @throws UserNotFoundException
 	 */
-	public void assignCourse(String courseCode, String professorId) throws CourseNotFoundException, UserNotFoundException;
-	
+	public void assignCourse(String courseCode, String professorId)
+			throws CourseNotFoundException, UserNotFoundException;
+
 	public void addUser(User user) throws UserNotAddedException, UserIdAlreadyInUseException;
 }

@@ -4,6 +4,7 @@ import java.sql.*;
 
 import com.flipkart.bean.*;
 import com.flipkart.constant.*;
+import com.flipkart.utils.DBUtils;
 
 public class PaymentDaoOperation implements PaymentDaoInterface {
 
@@ -16,11 +17,11 @@ public class PaymentDaoOperation implements PaymentDaoInterface {
 	static final String USER = "root";
 	static final String PASS = "rahulkumar";
 
-	public boolean storePayment(Payment payment)  {
+	public boolean storePayment(Payment payment) {
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection(DB_URL, USER, PASS);
+			
+			Connection con = DBUtils.getConnection();
 
 			PreparedStatement stmt = con.prepareStatement(SQLQueriesConstant.ADD_PAYMENT);
 

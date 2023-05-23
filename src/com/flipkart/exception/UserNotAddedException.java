@@ -1,30 +1,25 @@
 package com.flipkart.exception;
 
 /**
- * Exception to check if user cannot be added
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Exception to check if user cannot be added Group -E rahul.kumar ishika.gupta
+ * nishant.singh sri.vyshnavi kartik.garg
  */
 
-public class UserNotAddedException extends Exception{
+public class UserNotAddedException extends Exception {
 	private String userId;
-	
+
 	public UserNotAddedException(String id) {
 		userId = id;
 	}
-	
+
 	/**
 	 * Getter function for UserId
+	 * 
 	 * @return
 	 */
 	public String getUserId() {
 		return userId;
 	}
-	
 
 	/**
 	 * Message returned when exception is thrown

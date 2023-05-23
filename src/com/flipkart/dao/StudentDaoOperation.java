@@ -18,12 +18,7 @@ import com.flipkart.utils.DBUtils;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
 public class StudentDaoOperation implements StudentDaoInterface {

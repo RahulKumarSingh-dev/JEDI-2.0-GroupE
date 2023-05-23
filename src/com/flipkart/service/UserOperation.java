@@ -6,34 +6,28 @@ import com.flipkart.exception.UserNotFoundException;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
 public class UserOperation implements UserInterface {
-	
-	private static volatile UserOperation instance=null;
-	UserDaoInterface userDaoInterface= UserDaoOperation.getInstance();
-	private UserOperation()
-	{
-		
+
+	private static volatile UserOperation instance = null;
+	UserDaoInterface userDaoInterface = UserDaoOperation.getInstance();
+
+	private UserOperation() {
+
 	}
-	
+
 	/**
 	 * Method to make UserOperation Singleton
+	 * 
 	 * @return
 	 */
-	public static UserOperation getInstance()
-	{
-		if(instance==null)
-		{
+	public static UserOperation getInstance() {
+		if (instance == null) {
 			// This is a synchronised block, when multiple threads will access this instance
-			synchronized(UserOperation.class){
-				instance=new UserOperation();
+			synchronized (UserOperation.class) {
+				instance = new UserOperation();
 			}
 		}
 		return instance;
@@ -41,19 +35,20 @@ public class UserOperation implements UserInterface {
 
 	/**
 	 * Method to update password of a user
+	 * 
 	 * @param userID
 	 * @param newPassword
 	 * @return boolean indicating if the password is updated successfully
 	 */
-	
+
 	@Override
-	public boolean updatePassword(String userID,String newPassword) {
+	public boolean updatePassword(String userID, String newPassword) {
 		return userDaoInterface.updatePassword(userID, newPassword);
 	}
 
-	
 	/**
 	 * Method to verify User credentials
+	 * 
 	 * @param userID
 	 * @param password
 	 * @return boolean indicating if user exists in the database
@@ -61,19 +56,17 @@ public class UserOperation implements UserInterface {
 
 	@Override
 	public boolean verifyCredentials(String userID, String password) throws UserNotFoundException {
-		//DAO class
-		try
-		{
-			return userDaoInterface.verifyCredentials(userID, password);		
-		}
-		finally
-		{
-			
+		// DAO class
+		try {
+			return userDaoInterface.verifyCredentials(userID, password);
+		} finally {
+
 		}
 	}
-	
+
 	/**
 	 * Method to get role of a specific User
+	 * 
 	 * @param userId
 	 * @return RoleConstant of the User
 	 */
@@ -81,10 +74,5 @@ public class UserOperation implements UserInterface {
 	public String getRole(String userId) {
 		return userDaoInterface.getRole(userId);
 	}
-
-	
-
-
-	
 
 }

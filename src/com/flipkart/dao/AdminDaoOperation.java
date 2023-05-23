@@ -32,14 +32,8 @@ import com.flipkart.exception.UserNotFoundException;
 import com.flipkart.utils.DBUtils;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
-
 
 public class AdminDaoOperation implements AdminDaoInterface {
 
@@ -120,7 +114,7 @@ public class AdminDaoOperation implements AdminDaoInterface {
 
 			statement.setString(1, course.getCourseCode());
 			statement.setString(2, course.getCourseName());
-			
+
 			statement.setInt(3, 10);
 			statement.setString(4, "NOT_GRADED");
 			statement.setInt(5, course.getFees());
@@ -364,7 +358,7 @@ public class AdminDaoOperation implements AdminDaoInterface {
 		statement = null;
 		List<Course> courseList = new ArrayList<>();
 		try {
-			
+
 			String sql = SQLQueriesConstant.VIEW_COURSE_QUERY;
 			statement = connection.prepareStatement(sql);
 			// statement.setInt(1, catalogId);

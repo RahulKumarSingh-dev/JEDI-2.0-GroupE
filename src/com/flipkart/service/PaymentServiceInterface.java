@@ -11,7 +11,6 @@ import com.flipkart.bean.Payment;
  */
 public interface PaymentServiceInterface {
 
-	
 	public void processPayment(Payment payment);
-	
+
 }

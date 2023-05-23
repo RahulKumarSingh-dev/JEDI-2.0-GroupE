@@ -2,39 +2,32 @@ package com.flipkart.constant;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 public enum RoleConstant {
-	ADMIN,PROFESSOR,STUDENT;
-	
+	ADMIN, PROFESSOR, STUDENT;
 
 	@Override
-	public String toString()
-	{
-		final String name=name();
-		return name; 
+	public String toString() {
+		final String name = name();
+		return name;
 	}
-	
+
 	/**
 	 * Method to get RoleConstant object from String
+	 * 
 	 * @param role
 	 * @return RoleConstant object
 	 */
-	public static RoleConstant stringToName(String role)
-	{
-		RoleConstant userRole=null;
+	public static RoleConstant stringToName(String role) {
+		RoleConstant userRole = null;
 
-		if(role.equalsIgnoreCase("ADMIN"))
-			userRole=RoleConstant.ADMIN;
-		else if(role.equalsIgnoreCase("PROFESSOR"))
-			userRole=RoleConstant.PROFESSOR;
-		else if(role.equalsIgnoreCase("STUDENT"))
-			userRole=RoleConstant.STUDENT;
+		if (role.equalsIgnoreCase("ADMIN"))
+			userRole = RoleConstant.ADMIN;
+		else if (role.equalsIgnoreCase("PROFESSOR"))
+			userRole = RoleConstant.PROFESSOR;
+		else if (role.equalsIgnoreCase("STUDENT"))
+			userRole = RoleConstant.STUDENT;
 		return userRole;
 	}
 }

@@ -15,76 +15,79 @@ import com.flipkart.exception.SeatNotAvailableException;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
- 
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
+ * 
  */
 public interface RegistrationInterface {
-	
-		public boolean addCourse(String courseCode, String studentId, List<Course> availableCourseList)
+
+	public boolean addCourse(String courseCode, String studentId, List<Course> availableCourseList)
 			throws CourseNotFoundException, CourseLimitExceededException, SeatNotAvailableException, SQLException;
 
 	/**
 	 * Method to set student registration status
+	 * 
 	 * @param studentId
 	 * @throws SQLException
 	 */
 	void setRegistrationStatus(String studentId) throws SQLException;
 
 	/**
-	 *  Method to check student registration status
+	 * Method to check student registration status
+	 * 
 	 * @param studentId
 	 * @return boolean indicating if the student's registration status
 	 * @throws SQLException
 	 */
 	boolean getRegistrationStatus(String studentId) throws SQLException;
-	
+
 	boolean getPaymentStatus(String studentId) throws SQLException;
 
 	/**
 	 * Method to view the list of courses registered by the student
+	 * 
 	 * @param studentId
 	 * @return List of courses
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	List<Course> viewRegisteredCourses(String studentId) throws SQLException;
 
 	/**
-	 *  Method to view the list of available courses
+	 * Method to view the list of available courses
+	 * 
 	 * @param studentId
 	 * @return List of courses
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	List<Course> viewCourses(String studentId) throws SQLException;
 
 	/**
 	 * Method to view grade card for students
+	 * 
 	 * @param studentId
 	 * @return List of Student's Grades
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	List<Grade> viewGradeCard(String studentId) throws SQLException;
 
-	/** Method for Fee Calculation for selected courses
-	 * Fee calculation for selected courses
+	/**
+	 * Method for Fee Calculation for selected courses Fee calculation for selected
+	 * courses
+	 * 
 	 * @param studentId
 	 * @return Fee Student has to pay
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	double calculateFee(String studentId) throws SQLException;
 
 	/**
-	 *  Method to drop Course selected by student
+	 * Method to drop Course selected by student
+	 * 
 	 * @param courseCode
 	 * @param studentId
-	 * @param registeredCourseList 
+	 * @param registeredCourseList
 	 * @return boolean indicating if the course is dropped successfully
 	 * @throws CourseNotFoundException
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	boolean dropCourse(String courseCode, String studentId, List<Course> registeredCourseList)
 			throws CourseNotFoundException, SQLException;
@@ -92,5 +95,5 @@ public interface RegistrationInterface {
 	public boolean isReportGenerated(String studentId) throws SQLException;
 
 	public void setPaymentStatus(String studentId) throws SQLException;
-	
+
 }

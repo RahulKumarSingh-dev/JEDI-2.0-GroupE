@@ -2,75 +2,70 @@ package com.flipkart.constant;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
 public enum GenderConstant {
-	MALE(1),FEMALE(2),OTHER(3);
+	MALE(1), FEMALE(2), OTHER(3);
+
 	private final int gender;
-	
+
 	/**
 	 * Parameterised Constructor
+	 * 
 	 * @param gender
 	 */
-	private GenderConstant(int gender)
-	{
-		this.gender=gender;
+	private GenderConstant(int gender) {
+		this.gender = gender;
 	}
-	
+
 	/**
 	 * Method to return gender type in String
+	 * 
 	 * @return GenderConstant name in String
 	 */
 	@Override
-	public String toString()
-	{
-		final String name=name();
-		return name; 
+	public String toString() {
+		final String name = name();
+		return name;
 	}
-	
+
 	/**
 	 * Method to get GenderConstant object depending upon user input
+	 * 
 	 * @param val
 	 * @return GenderConstant object
 	 */
-	public static GenderConstant getName(int val)
-	{
-		GenderConstant gender=GenderConstant.OTHER;
-		switch(val)
-		{
+	public static GenderConstant getName(int val) {
+		GenderConstant gender = GenderConstant.OTHER;
+		switch (val) {
 		case 1:
-			gender=GenderConstant.MALE;
+			gender = GenderConstant.MALE;
 			break;
 		case 2:
-			gender=GenderConstant.FEMALE;
+			gender = GenderConstant.FEMALE;
 			break;
-			
+
 		}
 		return gender;
 	}
-	
+
 	/**
 	 * Method to convert String to GenderConstant object
+	 * 
 	 * @param val
 	 * @return GenderConstant object
 	 */
-	public static GenderConstant stringToGender(String val)
-	{
-		GenderConstant gender=GenderConstant.OTHER;
-		if(val.equalsIgnoreCase("male"))
-			gender=GenderConstant.MALE;
-		else if(val.equalsIgnoreCase("female"))
-			gender=GenderConstant.FEMALE;
-		else if(val.equalsIgnoreCase("other"))
-			gender=GenderConstant.OTHER;
-		
+	public static GenderConstant stringToGender(String val) {
+		GenderConstant gender = GenderConstant.OTHER;
+		if (val.equalsIgnoreCase("male"))
+			gender = GenderConstant.MALE;
+		else if (val.equalsIgnoreCase("female"))
+			gender = GenderConstant.FEMALE;
+		else if (val.equalsIgnoreCase("other"))
+			gender = GenderConstant.OTHER;
+
 		return gender;
 	}
-	
+
 }

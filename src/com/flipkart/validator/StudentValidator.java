@@ -9,57 +9,48 @@ import com.flipkart.exception.SeatNotAvailableException;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
- 
+
 public class StudentValidator {
 
 	/**
-	 * Method to validate if student is already registered for this particular course (courseCode) or not 
+	 * Method to validate if student is already registered for this particular
+	 * course (courseCode) or not
+	 * 
 	 * @param courseCode
 	 * @param studentId
-	 * @param registeredCourseList  
+	 * @param registeredCourseList
 	 * @return Student Registration Status
 	 * @throws CourseNotFoundException
 	 */
-	public static boolean isRegistered(String courseCode,String studentId,List<Course>registeredCourseList) throws CourseNotFoundException
-	{
-		for(Course course : registeredCourseList)
-		{
-			if(courseCode.equalsIgnoreCase(course.getCourseCode())) 
-			{
-				return true; 
+	public static boolean isRegistered(String courseCode, String studentId, List<Course> registeredCourseList)
+			throws CourseNotFoundException {
+		for (Course course : registeredCourseList) {
+			if (courseCode.equalsIgnoreCase(course.getCourseCode())) {
+				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
-	
+
 	/**
 	 * Method to validate if couseCode is valid or not
+	 * 
 	 * @param courseCode
 	 * @param availableCourseList
 	 * @return couseCode is valid or not
 	 */
-	public static boolean isValidCourseCode(String courseCode,List<Course>availableCourseList) 
-	{
-		for(Course course : availableCourseList)
-		{
-			if(courseCode.equalsIgnoreCase(course.getCourseCode())) 
-			{
-				return true; 
+	public static boolean isValidCourseCode(String courseCode, List<Course> availableCourseList) {
+		for (Course course : availableCourseList) {
+			if (courseCode.equalsIgnoreCase(course.getCourseCode())) {
+				return true;
 			}
 		}
-		
+
 		return false;
-	
+
 	}
-	
 
 }

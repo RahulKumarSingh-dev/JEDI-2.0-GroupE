@@ -4,39 +4,31 @@
 package com.flipkart.exception;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
-public class CourseNotFoundException extends Exception{
-	
+public class CourseNotFoundException extends Exception {
+
 	private String courseCode;
-	
-	public CourseNotFoundException(String courseCode)
-	{	
+
+	public CourseNotFoundException(String courseCode) {
 		this.courseCode = courseCode;
 	}
 
 	/**
 	 * Getter function for course code
+	 * 
 	 * @return
 	 */
-	public String getCourseCode()
-	{
+	public String getCourseCode() {
 		return courseCode;
 	}
-	
 
 	/**
 	 * Message returned when exception is thrown
 	 */
 	@Override
-	public String getMessage() 
-	{
+	public String getMessage() {
 		return "Course with courseCode: " + courseCode + " not found.";
 	}
 }

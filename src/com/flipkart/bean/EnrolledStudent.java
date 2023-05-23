@@ -5,19 +5,18 @@
  * sri.vyshnavi
  * kartik.garg
  */
- 
-package com.flipkart.bean;
 
+package com.flipkart.bean;
 
 public class EnrolledStudent {
 	String courseCode;
 	String courseName;
 	String studentId;
-	
-	public EnrolledStudent(String courseCode,String courseName,String studentId){
-		this.courseCode=courseCode;
-		this.courseName=courseName;
-		this.studentId=studentId;
+
+	public EnrolledStudent(String courseCode, String courseName, String studentId) {
+		this.courseCode = courseCode;
+		this.courseName = courseName;
+		this.studentId = studentId;
 	}
 
 	public String getCourseCode() {
@@ -43,5 +42,5 @@ public class EnrolledStudent {
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	
+
 }

@@ -13,37 +13,30 @@ import com.flipkart.utils.DBUtils;
 
 /**
  * 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
-public class UserDaoOperation implements UserDaoInterface{
-	private static volatile UserDaoOperation instance=null;
+public class UserDaoOperation implements UserDaoInterface {
+	private static volatile UserDaoOperation instance = null;
 	private static Logger logger = Logger.getLogger(UserDaoOperation.class);
 
 	/**
 	 * Default Constructor
 	 */
-	private UserDaoOperation()
-	{
-		
+	private UserDaoOperation() {
+
 	}
-	
+
 	/**
 	 * Method to make UserDaoOperation Singleton
+	 * 
 	 * @return
 	 */
-	public static UserDaoOperation getInstance()
-	{
-		if(instance==null)
-		{
+	public static UserDaoOperation getInstance() {
+		if (instance == null) {
 			// This is a synchronised block, when multiple threads will access this instance
-			synchronized(UserDaoOperation.class){
-				instance=new UserDaoOperation();
+			synchronized (UserDaoOperation.class) {
+				instance = new UserDaoOperation();
 			}
 		}
 		return instance;
@@ -51,32 +44,29 @@ public class UserDaoOperation implements UserDaoInterface{
 
 	/**
 	 * Method to update password of user in DataBase
+	 * 
 	 * @param userID
 	 * @param newPassword
 	 * @return Update Password operation Status
 	 */
 	@Override
 	public boolean updatePassword(String userId, String newPassword) {
-		Connection connection=DBUtils.getConnection();
+		Connection connection = DBUtils.getConnection();
 		try {
 			PreparedStatement statement = connection.prepareStatement(SQLQueriesConstant.UPDATE_PASSWORD);
-			
+
 			statement.setString(1, newPassword);
 			statement.setString(2, userId);
-			
+
 			int row = statement.executeUpdate();
-			
-			if(row==1)
+
+			if (row == 1)
 				return true;
 			else
 				return false;
-		}
-		catch(SQLException e)
-		{
+		} catch (SQLException e) {
 			logger.error(e.getMessage());
-		}
-		finally
-		{
+		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
@@ -85,9 +75,10 @@ public class UserDaoOperation implements UserDaoInterface{
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Method to verify credentials of Users from DataBase
+	 * 
 	 * @param userId
 	 * @param password
 	 * @return Verify credentials operation status
@@ -96,35 +87,27 @@ public class UserDaoOperation implements UserDaoInterface{
 	@Override
 	public boolean verifyCredentials(String userId, String password) throws UserNotFoundException {
 		Connection connection = DBUtils.getConnection();
-		try
-		{
-			//opening database connection
-			PreparedStatement preparedStatement=connection.prepareStatement(SQLQueriesConstant.VERIFY_CREDENTIALS);
-			preparedStatement.setString(1,userId);
+		try {
+			// opening database connection
+			PreparedStatement preparedStatement = connection.prepareStatement(SQLQueriesConstant.VERIFY_CREDENTIALS);
+			preparedStatement.setString(1, userId);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			
+
 			logger.info("inside verify");
-			
-			if(!resultSet.next())
+
+			if (!resultSet.next())
 				throw new UserNotFoundException(userId);
 
-			else if(password.equals(resultSet.getString("password")))
-			{
+			else if (password.equals(resultSet.getString("password"))) {
 				logger.info("inside equals");
 				return true;
-			}
-			else
-			{
+			} else {
 				return false;
 			}
-			
-		}
-		catch(SQLException ex)
-		{
-			logger.error("Something went wrong, please try again! "+ ex.getMessage());
-		}
-		finally
-		{
+
+		} catch (SQLException ex) {
+			logger.error("Something went wrong, please try again! " + ex.getMessage());
+		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
@@ -137,6 +120,7 @@ public class UserDaoOperation implements UserDaoInterface{
 
 	/**
 	 * Method to update password of user in DataBase
+	 * 
 	 * @param userID
 	 * @return Update Password operation Status
 	 */
@@ -145,52 +129,45 @@ public class UserDaoOperation implements UserDaoInterface{
 		// Auto-generated method stub
 		return false;
 	}
-	
+
 	/**
 	 * Method to get RoleConstant of User from DataBase
+	 * 
 	 * @param userId
 	 * @return RoleConstant
 	 */
 	@Override
-	public String getRole(String userId) 
-	{
-		Connection connection=DBUtils.getConnection();
+	public String getRole(String userId) {
+		Connection connection = DBUtils.getConnection();
 		try {
 			logger.info(userId);
-			connection=DBUtils.getConnection();
-			
+			connection = DBUtils.getConnection();
+
 			PreparedStatement statement = connection.prepareStatement(SQLQueriesConstant.GET_ROLE);
 			statement.setString(1, userId);
 			ResultSet rs = statement.executeQuery();
-			
-			
-			
+
 			logger.info("query executed");
-			
-			if(rs.next())
-			{
+
+			if (rs.next()) {
 				logger.info(rs.getString("role"));
 				return rs.getString("role");
 			}
-				
-		}
-		catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			logger.error(e.getMessage());
-			
+
 		}
-		
-		finally
-		{
+
+		finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 		return null;
 	}
 
-	
 }

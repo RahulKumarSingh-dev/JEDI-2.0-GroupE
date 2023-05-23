@@ -6,20 +6,14 @@ package com.flipkart.service;
 import com.flipkart.exception.UserNotFoundException;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
- 
-public interface UserInterface {
 
-	
+public interface UserInterface {
 
 	/**
 	 * Method to get role of a specific User
+	 * 
 	 * @param userId
 	 * @return RoleConstant of the User
 	 */
@@ -27,6 +21,7 @@ public interface UserInterface {
 
 	/**
 	 * Method to verify User credentials
+	 * 
 	 * @param userID
 	 * @param password
 	 * @return boolean indicating if user exists in the database
@@ -35,10 +30,11 @@ public interface UserInterface {
 
 	/**
 	 * Method to update password of a user
+	 * 
 	 * @param userID
 	 * @param newPassword
 	 * @return boolean indicating if the password is updated successfully
 	 */
 	boolean updatePassword(String userID, String newPassword);
-	
+
 }

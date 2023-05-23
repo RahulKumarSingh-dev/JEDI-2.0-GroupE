@@ -2,13 +2,8 @@
 package com.flipkart.exception;
 
 /**
- * Exception to check if user exists 
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Exception to check if user exists Group -E rahul.kumar ishika.gupta
+ * nishant.singh sri.vyshnavi kartik.garg
  */
 
 public class UserNotFoundException extends Exception {
@@ -17,6 +12,7 @@ public class UserNotFoundException extends Exception {
 
 	/***
 	 * Setter function for UserId
+	 * 
 	 * @param userId
 	 */
 	public UserNotFoundException(String id) {
@@ -26,10 +22,9 @@ public class UserNotFoundException extends Exception {
 	/**
 	 * Message thrown by exception
 	 */
-	
+
 	public String getMessage() {
 		return "User with userId: " + userId + " not found.";
 	}
-	
 
 }

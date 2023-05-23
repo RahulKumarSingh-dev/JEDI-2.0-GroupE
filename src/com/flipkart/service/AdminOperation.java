@@ -13,148 +13,136 @@ import com.flipkart.dao.AdminDaoInterface;
 import com.flipkart.dao.AdminDaoOperation;
 
 /**
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Group -E rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
-public class AdminOperation implements AdminInterface{
-	
+public class AdminOperation implements AdminInterface {
+
 	private static volatile AdminOperation instance = null;
-	
-	private AdminOperation()
-	{
-		
+
+	private AdminOperation() {
+
 	}
-	
+
 	/**
 	 * Method to make AdminOperation Singleton
 	 */
-	
-	public static AdminOperation getInstance()
-	{
-		if(instance == null)
-		{
-			synchronized(AdminOperation.class){
+
+	public static AdminOperation getInstance() {
+		if (instance == null) {
+			synchronized (AdminOperation.class) {
 				instance = new AdminOperation();
 			}
 		}
 		return instance;
 	}
-	
-	AdminDaoInterface adminDaoOperation =AdminDaoOperation.getInstance();
-	
-	
-	public List<Course> viewCourses()
-	{
+
+	AdminDaoInterface adminDaoOperation = AdminDaoOperation.getInstance();
+
+	public List<Course> viewCourses() {
 		return adminDaoOperation.viewCourses();
 	}
-	public List<Professor> viewProfessors()
-	{
+
+	public List<Professor> viewProfessors() {
 		return adminDaoOperation.viewProfessors();
 	}
-	
+
 	/**
 	 * Method to view Students yet to be approved by Admin
+	 * 
 	 * @return List of Students with pending admissions
 	 */
 	@Override
 	public List<Student> viewPendingAdmissions() {
 		return adminDaoOperation.viewPendingAdmissions();
 	}
-	
+
 	/**
-	 * Method to generate grade card of a Student 
-	 * @param studentid 
+	 * Method to generate grade card of a Student
+	 * 
+	 * @param studentid
 	 */
-	
-	public List<RegisteredCourse> generateGradeCard(String Studentid)
-	{
+
+	public List<RegisteredCourse> generateGradeCard(String Studentid) {
 		return adminDaoOperation.generateGradeCard(Studentid);
 	}
-	
+
 	/**
 	 * Method to remove Course from Course Catalog
+	 * 
 	 * @param courseCode
 	 * @param courseList : Courses available in the catalog
-	 * @throws CourseNotFoundException 
+	 * @throws CourseNotFoundException
 	 */
 	@Override
-	public void removeCourse(String dropCourseCode, List<Course> courseList) throws CourseNotFoundException, CourseNotDeletedException {
-		if(!AdminValidator.isValidDropCourse(dropCourseCode, courseList)) {
+	public void removeCourse(String dropCourseCode, List<Course> courseList)
+			throws CourseNotFoundException, CourseNotDeletedException {
+		if (!AdminValidator.isValidDropCourse(dropCourseCode, courseList)) {
 			System.out.println("courseCode: " + dropCourseCode + " not present in catalog!");
 			throw new CourseNotFoundException(dropCourseCode);
 		}
-		
+
 		try {
 			adminDaoOperation.removeCourse(dropCourseCode);
-		}
-		catch(CourseNotFoundException | CourseNotDeletedException e) {
+		} catch (CourseNotFoundException | CourseNotDeletedException e) {
 			throw e;
 		}
 	}
 
 	/**
 	 * Method to add Course to Course Catalog
-	 * @param course : Course object storing details of a course
+	 * 
+	 * @param course     : Course object storing details of a course
 	 * @param courseList : Courses available in catalog
 	 * @throws CourseFoundException
 	 */
 	@Override
-	public void addCourse(Course newCourse, List<Course> courseList) throws CourseExistsAlreadyException 
-	{
-		
-		
+	public void addCourse(Course newCourse, List<Course> courseList) throws CourseExistsAlreadyException {
+
 		try {
-			if(!AdminValidator.isValidNewCourse(newCourse, courseList)) {
+			if (!AdminValidator.isValidNewCourse(newCourse, courseList)) {
 				System.out.println("courseCode: " + newCourse.getCourseCode() + " already present in catalog!");
 				throw new CourseExistsAlreadyException(newCourse.getCourseCode());
 			}
 			adminDaoOperation.addCourse(newCourse);
-		}
-		catch(CourseExistsAlreadyException e) {
+		} catch (CourseExistsAlreadyException e) {
 			throw e;
 		}
 	}
-	
+
 	/**
-	 * Method to approve a Student 
+	 * Method to approve a Student
+	 * 
 	 * @param studentId
-	 * @param studentList 
-	 * @throws StudentNotFoundException 
+	 * @param studentList
+	 * @throws StudentNotFoundException
 	 */
 	@Override
 	public void approveStudent(String studentId, List<Student> studentList) throws StudentNotFoundForApprovalException {
-		
-		
+
 		try {
-			
-			if(AdminValidator.isValidUnapprovedStudent(studentId, studentList)) {
-				
+
+			if (AdminValidator.isValidUnapprovedStudent(studentId, studentList)) {
+
 				throw new StudentNotFoundForApprovalException(studentId);
 			}
 			adminDaoOperation.approveStudent(studentId);
-		}
-		catch(StudentNotFoundForApprovalException e) {
-			
+		} catch (StudentNotFoundForApprovalException e) {
+
 			throw e;
 		}
 	}
-public void approveAllStudent( List<Student> studentList) throws StudentNotFoundForApprovalException {
-		
-		
+
+	public void approveAllStudent(List<Student> studentList) throws StudentNotFoundForApprovalException {
+
 		try {
-			
-			for(Student student:studentList) {
-				this.approveStudent(student.getUserId(),studentList);
+
+			for (Student student : studentList) {
+				this.approveStudent(student.getUserId(), studentList);
 			}
-			
-		}
-		catch(StudentNotFoundForApprovalException e) {
-			
+
+		} catch (StudentNotFoundForApprovalException e) {
+
 			throw e;
 		}
 	}
@@ -167,26 +155,25 @@ public void approveAllStudent( List<Student> studentList) throws StudentNotFound
 	public void addProfessor(Professor professor) throws ProfessorNotAddedException, UserIdAlreadyInUseException {
 		try {
 			adminDaoOperation.addProfessor(professor);
-		}
-		catch(ProfessorNotAddedException | UserIdAlreadyInUseException e) {
+		} catch (ProfessorNotAddedException | UserIdAlreadyInUseException e) {
 			throw e;
 		}
-		
+
 	}
-	
+
 	/**
 	 * Method to assign Course to a Professor
+	 * 
 	 * @param courseCode
 	 * @param professorId
-	 * @throws CourseNotFoundException 
-	 * @throws UserNotFoundException 
+	 * @throws CourseNotFoundException
+	 * @throws UserNotFoundException
 	 */
-	public void assignCourse(String courseCode, String professorId) throws CourseNotFoundException, UserNotFoundException
-	{
+	public void assignCourse(String courseCode, String professorId)
+			throws CourseNotFoundException, UserNotFoundException {
 		try {
 			adminDaoOperation.assignCourse(courseCode, professorId);
-		}
-		catch(CourseNotFoundException | UserNotFoundException e) {
+		} catch (CourseNotFoundException | UserNotFoundException e) {
 			throw e;
 		}
 	}
@@ -194,7 +181,7 @@ public void approveAllStudent( List<Student> studentList) throws StudentNotFound
 	@Override
 	public void setGeneratedReportCardTrue(String Studentid) {
 		adminDaoOperation.setGeneratedReportCardTrue(Studentid);
-		
+
 	}
 
 }

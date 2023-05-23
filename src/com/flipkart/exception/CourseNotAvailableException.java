@@ -1,36 +1,29 @@
 package com.flipkart.exception;
 
 /**
- * Exception to check if seats are available for course registration
- * Group -E
- * rahul.kumar
- * ishika.gupta
- * nishant.singh
- * sri.vyshnavi
- * kartik.garg
+ * Exception to check if seats are available for course registration Group -E
+ * rahul.kumar ishika.gupta nishant.singh sri.vyshnavi kartik.garg
  */
 
-public class CourseNotAvailableException extends Exception{
-	
+public class CourseNotAvailableException extends Exception {
+
 	private String courseCode;
 
 	/**
 	 * Constructor
+	 * 
 	 * @param courseCode
 	 */
-	public CourseNotAvailableException(String courseCode)
-	{	
+	public CourseNotAvailableException(String courseCode) {
 		this.courseCode = courseCode;
 	}
-
 
 	/**
 	 * Message returned when exception is thrown
 	 */
 	@Override
 	public String getMessage() {
-		return  "Seats are not available in : " + courseCode;
+		return "Seats are not available in : " + courseCode;
 	}
-
 
 }

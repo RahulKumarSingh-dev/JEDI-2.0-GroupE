@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class SemRegistration {
-	
+
 	int studenID;
 	int sem;
 	Date date;
@@ -16,36 +16,41 @@ public class SemRegistration {
 		this.sem = sem;
 		this.date = date;
 	}
+
 	public SemRegistration() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public int getStudenID() {
 		return studenID;
 	}
+
 	public void setStudenID(int studenID) {
 		this.studenID = studenID;
 	}
+
 	public int getSem() {
 		return sem;
 	}
+
 	public void setSem(int sem) {
 		this.sem = sem;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 	public List<Course> getCourseList() {
 		return courseList;
 	}
+
 	public void setCourseList(List<Course> courseList) {
 		this.courseList = new ArrayList<Course>(courseList);
 	}
-	
-	
-	
-	
 
 }

@@ -2,17 +2,15 @@ package com.flipkart.bean;
 
 import java.util.List;
 
-public class GradeCard 
-{
+public class GradeCard {
 	Student stud;
 	int sem;
 	float cgpa;
-	List<RegisteredCourse> reg_list ;
-	
-	/*public float calCGPA()
-	{
-		return 0;
-	}*/
+	List<RegisteredCourse> reg_list;
+
+	/*
+	 * public float calCGPA() { return 0; }
+	 */
 
 	/**
 	 * @return the stud
@@ -69,6 +67,5 @@ public class GradeCard
 	public void setReg_list(List<RegisteredCourse> reg_list) {
 		this.reg_list = reg_list;
 	}
-	
-	
+
 }
